@@ -15,20 +15,22 @@
     <meta name="author" content="STINT Workshop Organizing Committee">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph -->
-    <meta property="og:title" content="STINT 2025 – Space-Terrestrial Internetworking Workshop">
+    <!-- Open Graph for WhatsApp, Telegram, Facebook, LinkedIn -->
+    <meta property="og:title" content="STINT 2025 - Space-Terrestrial Internetworking Workshop" />
     <meta property="og:description"
-        content="Join the leading forum for Delay-Tolerant and Space Networking Research, co-located with IEEE WiSEE 2025 in Halifax.">
-    <meta property="og:image" content="https://your-domain.com/logo.png"> <!-- or background.jpg -->
-    <meta property="og:url" content="https://juanfraire.github.io/stint-workshop-website/">
-    <meta property="og:type" content="website">
-
+        content="The Forum for Delay-Tolerant and Space Networking Research." />
+    <meta property="og:image" content="https://stintworkshops.org/preview.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="922" />
+    <meta property="og:image:height" content="768" />
+    <meta property="og:url" content="https://stintworkshops.org/" />
+    <meta property="og:type" content="website" />
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="STINT 2025 – Space-Terrestrial Internetworking Workshop">
-    <meta name="twitter:description"
-        content="A premier event on Delay-Tolerant and Space Networking, co-located with IEEE WiSEE 2025.">
-    <meta name="twitter:image" content="https://your-domain.com/logo.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="STINT 2025 - Space-Terrestrial Internetworking Workshop" />
+    <meta name="twitter:description" content="The Forum for Delay-Tolerant and Space Networking Research." />
+    <meta name="twitter:image" content="https://stintworkshops.org/preview.jpg" />
+    <!-- Stuff -->
     <title>STINT 2025 - Space-Terrestrial Internetworking Workshop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -89,6 +91,14 @@
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center center;
+            }
         }
 
         .section-divider {
@@ -286,7 +296,8 @@
 
         <!-- Overlay logo -->
         <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <img src="stint-logo.svg" alt="STINT Logo" class="animate-pulse-soft-nop w-[1480px] max-w-[80%] h-auto opacity-15 -mt-12" />
+            <img src="stint-logo.svg" alt="STINT Logo"
+                class="animate-pulse-soft-nop w-[1480px] max-w-[80%] h-auto opacity-15 -mt-12" />
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
@@ -350,7 +361,7 @@
         </div>
     </section>
 
-    <div class="section-divider"></div>
+    <!-- <div class="section-divider"></div> -->
 
     <!-- Scope & Overview -->
     <section id="scope" class="py-20 bg-gray-900">
@@ -949,14 +960,10 @@
                     <a href="#home" class="flex items-center space-x-2">
                         <div
                             class="w-8 h-8 rounded-full bg-gradient-to-br from-space-500 to-cosmic-600 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                            <img src="favicon-96x96.png" alt="STINT Logo" class="h-5 w-5 text-white" />
                         </div>
-                        <span class="text-xl font-bold text-white">STINT 2025</span>
+                        <span class="text-xl font-bold text-white" style="font-family: 'GoodTimes', sans-serif;">STINT
+                            2025</span>
                     </a>
                     <p class="text-gray-400 mt-4">
                         Space-Terrestrial Internetworking Workshop<br>
