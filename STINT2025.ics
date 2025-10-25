@@ -1,0 +1,77 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//STINT Workshop//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:STINT_Day_1_-_Keynote_Session_1@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251013T130000
+DTEND;TZID=America/Halifax:20251013T141500
+SUMMARY:STINT Day 1 - Keynote Session 1
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_1_-_Invited_Talk_Session@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251013T143000
+DTEND;TZID=America/Halifax:20251013T154500
+SUMMARY:STINT Day 1 - Invited Talk Session
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_2_-_Keynote_Session_2@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251014T091500
+DTEND;TZID=America/Halifax:20251014T103000
+SUMMARY:STINT Day 2 - Keynote Session 2
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_2_-_Paper_Session_1@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251014T104500
+DTEND;TZID=America/Halifax:20251014T120000
+SUMMARY:STINT Day 2 - Paper Session 1
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_2_-_Paper_Session_2@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251014T130000
+DTEND;TZID=America/Halifax:20251014T141500
+SUMMARY:STINT Day 2 - Paper Session 2
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_2_-_Panel_Session@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251014T143000
+DTEND;TZID=America/Halifax:20251014T154500
+SUMMARY:STINT Day 2 - Panel Session
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_3_-_Hackathon_Session_1@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251015T091500
+DTEND;TZID=America/Halifax:20251015T103000
+SUMMARY:STINT Day 3 - Hackathon Session 1
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+BEGIN:VEVENT
+UID:STINT_Day_3_-_Hackathon_Session_2@stintworkshops.org
+DTSTAMP:20251011T171627Z
+DTSTART;TZID=America/Halifax:20251015T104500
+DTEND;TZID=America/Halifax:20251015T120000
+SUMMARY:STINT Day 3 - Hackathon Session 2
+DESCRIPTION:STINT Workshop Session. More info at https://stintworkshops.org/
+LOCATION:Halifax, Canada
+END:VEVENT
+END:VCALENDAR
