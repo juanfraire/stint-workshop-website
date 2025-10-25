@@ -689,16 +689,35 @@
 
                 <!-- Vinton Cerf Card: spans 2 columns on medium+ screens, 1 on small -->
                 <div class="md:col-span-2">
-                    <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                        <img src="welcome-vint.jpg" alt="Vinton Cerf"
-                            class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-space-500">
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-1">Welcome Words by Vinton Cerf</h3>
-                            <p>The co-inventor of the Internet will open STINT 2025 with remote welcome remarks.</p>
+                    <div class="p-6 bg-gray-800 rounded-lg shadow-md">
+                        <div class="flex items-start space-x-4 mb-4">
+                            <img src="welcome-vint.jpg" alt="Vinton Cerf"
+                                class="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 border-space-500">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Welcome Words by Vinton Cerf</h3>
+                                <p>The co‑inventor of the Internet will open STINT 2025 with remote welcome remarks.</p>
+                            </div>
+                        </div>
+
+                        <!-- Responsive iframe video -->
+                        <div class="aspect-[16/9] mb-4">
+                            <iframe class="w-full h-full rounded-md"
+                                src="https://www.youtube.com/embed/iqldWqvHiXM?rel=0" title="Vinton Cerf Welcome Video"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard‑write; encrypted‑media; gyroscope; picture‑in‑picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="flex items-center">
+                            <a href="https://www.linkedin.com/in/vintoncerf" target="_blank" rel="noopener noreferrer"
+                                class="text-gray-400 hover:text-space-400 transition duration-150 ease-in-out">
+                                <span class="sr-only">LinkedIn</span>
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-
                 <!-- Invited Talks -->
                 <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
                     <svg class="h-8 w-8 text-space-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
