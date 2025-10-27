@@ -718,17 +718,55 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Invited Talks -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-space-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M8 10h.01M12 10h.01M16 10h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Invited Talks</h3>
-                        <p>Presentations by leading experts from academia and industry on cutting-edge networking
-                            topics.</p>
+                <div class="p-6 bg-gray-800 rounded-lg shadow-md">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <svg class="h-8 w-8 text-space-400 flex-shrink-0" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 10h.01M12 10h.01M16 10h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z" />
+                        </svg>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Invited Talks</h3>
+                            <p class="mb-2">Presentations by leading experts from academia and industry on cutting-edge
+                                networking
+                                topics.</p>
+                        </div>
+                    </div>
+                    <!-- Embedded video -->
+                    <div class="aspect-[16/9]">
+                        <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/HmEGe8DANPs?rel=0"
+                            title="STINT 2025 Invited Talks" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Panel Discussions -->
+                <div class="p-6 bg-gray-800 rounded-lg shadow-md">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <svg class="h-8 w-8 text-space-400 flex-shrink-0" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 8h2a2 2 0 012 2v9l-4-4H7a2 2 0 01-2-2V8a2 2 0 012-2h2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8V6a5 5 0 0110 0v2" />
+                        </svg>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Panel Discussions</h3>
+                            <p class="mb-2">Interactive sessions featuring domain experts discussing emerging protocol
+                                and architecture
+                                visions.</p>
+                        </div>
+                    </div>
+                    <!-- Embedded video -->
+                    <div class="aspect-[16/9]">
+                        <iframe class="w-full h-full rounded-md" src="https://www.youtube.com/embed/CSrzniG_W6w?rel=0"
+                            title="STINT 2025 Panel Discussions" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
@@ -741,22 +779,13 @@
                     </svg>
                     <div>
                         <h3 class="text-xl font-semibold text-white mb-2">Peer-Reviewed Papers</h3>
-                        <p>Accepted full papers will be indexed in IEEE Xplore and presented in technical sessions.</p>
-                    </div>
-                </div>
-
-                <!-- Panel Discussions -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-space-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17 8h2a2 2 0 012 2v9l-4-4H7a2 2 0 01-2-2V8a2 2 0 012-2h2" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 8V6a5 5 0 0110 0v2" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Panel Discussions</h3>
-                        <p>Interactive sessions featuring domain experts discussing emerging protocol and architecture
-                            visions.</p>
+                        <p class="mb-2">Accepted full papers will be indexed in IEEE Xplore and presented in technical
+                            sessions.</p>
+                        <a href="https://drive.google.com/drive/folders/1YVyYroUCVkCu5kSh_xggK8hL8sEFbnim?usp=sharing"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-space-400 hover:underline inline-block mt-1">
+                            📄 View Presented Papers
+                        </a>
                     </div>
                 </div>
 
@@ -768,10 +797,15 @@
                     </svg>
                     <div>
                         <h3 class="text-xl font-semibold text-white mb-2">Routing Hackathon</h3>
-                        <p>Hands-on event showcasing the SABR Routing Library for Delay-Tolerant and Satellite Networks.
-                        </p>
+                        <p class="mb-2">Hands-on event showcasing the SABR Routing Library for Delay-Tolerant and
+                            Satellite Networks.</p>
+                        <a href="https://github.com/DTN-MTP/A-SABR/tree/main/exercises" target="_blank"
+                            rel="noopener noreferrer" class="text-space-400 hover:underline inline-block mt-1">
+                            🧠 Explore Hackathon Exercises
+                        </a>
                     </div>
                 </div>
+
             </div>
         </div>
 
