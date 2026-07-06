@@ -189,6 +189,13 @@
         #stars-canvas {
             pointer-events: none;
         }
+
+        /* Papers accordion (native <details>) */
+        .paper-card summary { list-style: none; }
+        .paper-card summary::-webkit-details-marker { display: none; }
+        .paper-card .chevron { transition: transform 0.25s ease; }
+        .paper-card[open] .chevron { transform: rotate(180deg); }
+        .paper-card summary:hover .paper-title { color: #fdba74; }
     </style>
     <style>
         @keyframes float {
@@ -811,19 +818,332 @@
 
             </div>
 
+            <!-- Accepted Papers -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold text-white text-center mb-2">Accepted Papers</h3>
+                <p class="text-gray-500 text-center text-sm mb-6">Ten peer-reviewed full papers &middot; click a paper to expand its summary.</p>
+                <div class="space-y-3">
+
+                    <!-- #33 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#33</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Routing &amp; Topology</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">On the Distribution of DTN Reachability Information: A Quantitative Push-Vs-Pull Analysis</p>
+                                <p class="text-gray-500 text-xs mt-1">Juan A. Fraire</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">As space networks scale from isolated point-to-point links to multi-operator, multi-hop infrastructures &mdash; spanning cislunar relays, Mars surface meshes, and deep-space probes &mdash; nodes must discover how to reach each other's Bundle Protocol endpoints. Today, this Endpoint Identifier (EID)-to-Convergence-Layer Adapter (CLA) binding is pre-provisioned; it will not scale. Two Internet paradigms offer competing solutions: proactive flooding (à la BGP) that replicates every binding everywhere, and on-demand resolution (à la DNS) that queries an authority only when needed. We build OMNeT++ models of both paradigms and evaluate them across 13 experiments on synthetic grids (up to 400 nodes, 500 EIDs) and three realistic scenarios &mdash; terrestrial disaster response, lunar Artemis, and Mars exploration &mdash; covering one-way delays from 5 ms to 12 min. The results reveal a sharp, delay-driven regime map: below ~100 ms round-trip time, DNS delivers 9&ndash;141× lower overhead with sub-200 ms query latency; above ~3 s, BGP's one-time convergence cost amortizes after a single query, making it the only viable option at Mars distances; and a contested crossover emerges at cislunar delays (~1&ndash;3 s), where a hybrid strategy may be optimal. Under EID churn, BGP maintains 100% accuracy at all rates, while DNS degrades to 30% when the churn interval falls below the cache TTL. These findings provide the first systematic, quantitative guidelines for choosing &mdash; or combining &mdash; push and pull EID resolution in networks that span the solar system.</p>
+                        </div>
+                    </details>
+
+                    <!-- #43 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#43</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Routing &amp; Topology</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">IR-CGR: Time-Aware Inter-Region Contact Graph Routing for Scalable Space DTNs</p>
+                                <p class="text-gray-500 text-xs mt-1">Shota Suzuki, Juan A. Fraire, Keisuke Uehara</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Regionalization techniques scale Contact Graph Routing (CGR) in space Delay-Tolerant Networks by partitioning the network into routing regions, but existing local-knowledge schemes treat inter-region routing as a time-static problem: the set of viable passageways (nodes bridging two regions) is fixed at plan-derivation time. In orbital environments where passageway availability changes continuously, a statically selected passageway may have no contact left to carry a bundle onward by its arrival time, causing delivery failures. We propose IR-CGR, an Inter-Region Contact Graph Routing algorithm that constructs a time-aware Inter-Region Contact Plan (IRCP) over passageway nodes and applies contact-graph Dijkstra hierarchically at both intra- and inter-region levels, with a sampling parameter &Delta;t that trades IRCP size against temporal resolution. Evaluations on a synthetic scaling model and the realistic Lunar Ring Road scenario show that IR-CGR sustains 100% delivery ratio, matching full-knowledge CGR, on sparse-relay lunar configurations where the static-vent baseline collapses to 53&ndash;72%; reduces per-bundle computational cost to 7&ndash;29% of the full-knowledge baseline on the largest synthetic networks at its default 3600 s sampling interval; and keeps delivery delay within about 1.9× of the full-knowledge reference on most sparse-relay configurations. A bounded delay overhead in the dense synthetic regime and a localized cost penalty under degenerate partitions together quantify the structural price of hierarchical path commitment.</p>
+                        </div>
+                    </details>
+
+                    <!-- #50 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#50</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Routing &amp; Topology</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Network-Layer Evaluation of Optical Contact Plan Design Under PAT Constraints in Interplanetary DTNs</p>
+                                <p class="text-gray-500 text-xs mt-1">Andre Ibrahim, Jason Gerard, Sandra Cespedes</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Interplanetary networks operate under intermittent connectivity and long propagation delays, motivating the use of delay- and disruption-tolerant networking (DTN). In optical interplanetary communication, these challenges are further exacerbated by long one-way light-time delays and micro-radian beam-pointing constraints due to narrow optical beam divergence. This requires a Pointing, Acquisition, and Tracking (PAT) control loop, which adds additional delay before data transmission can begin. In this context, deterministic DTNs rely on Contact Graph Routing (CGR), which operates on predefined contact plans whose construction depends on underlying networking assumptions and system constraints. Prior work on contact plan design (CPD) has primarily evaluated interplanetary backhaul from a scheduling perspective, focusing on metrics derived from the generated contact plans and baseline methods that respect terminal constraints. However, the impact of these contact plans at the network layer under routing protocols and traffic generation remains largely unexplored. Exploring this impact is necessary to understand whether scheduled contact plans remain effective when realistic forwarding decisions, queueing behaviour, and traffic dynamics are introduced. In this work, we evaluate CPD methods using CGR with traffic generation to capture network-level performance. Our results show that contact plan designs (CPDs) that integrate realistic pointing, acquisition, and tracking (PAT) delays improve DTN routing performance under heavy load, achieving higher delivery rates and lower end-to-end delays than CPDs focused primarily on link utilization or fairness. Although FCP reduces retargeting activity, it delivers substantially fewer bundles and incurs higher delay. These findings show that minimizing optical retargeting alone does not guarantee improved DTN performance, highlighting the need to jointly consider retargeting cost and routing efficiency in CPD.</p>
+                        </div>
+                    </details>
+
+                    <!-- #55 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#55</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Protocols &amp; Integration</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Integrating LoRa Nodes into Global DTN Networks</p>
+                                <p class="text-gray-500 text-xs mt-1">Carlo Caini, Samo Grasic, Alberto Soncini</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Wireless sensor networks have always been considered an appealing application of the DTN architecture, because of their intermittent connectivity. They are however often based on microcontrollers, which complicates the use of the DTN pillar, the Bundle Protocol (BP). This paper shows how it is now possible to overcome this limitation and transform generic microcontrollers with a LoRa (Long Range) interface into true DTN nodes, fully integrated in a global DTN network. At the core of the paper we have muON, a new BPv7 implementation for microcontrollers, including two convergence layers, LoRaCL and UARTCL. The former (quite powerful and innovative) is used between LoRa nodes; the latter to interconnect a LoRa node with a gateway towards the IPNSIG PWG network, an experimental DTN network with nodes on many continents. Both CLs are described in detail in the paper. Test success proves that a LoRa network can not only benefit from BP-based DTN architecture, but thanks to BP interoperability it can also become a component of a global, potentially Interplanetary, DTN network.</p>
+                        </div>
+                    </details>
+
+                    <!-- #66 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#66</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Protocols &amp; Integration</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Deploying QUIC in Challenged Networks: Profiling and Volume-Aware Congestion Control</p>
+                                <p class="text-gray-500 text-xs mt-1">Oriol Fusté, Juan A. Fraire, Anna Calveras Augé, Joan Adrià Ruiz-de-Azúa</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">As communication networks expand into environments characterized by extreme latency and frequent disruptions, reliable data delivery requires Store&amp;Forward (SnF) architectures. While Delay-Tolerant Networking (DTN) has traditionally served as the de facto standard for these challenged networks, there is renewed interest in leveraging the IP suite, specifically the QUIC transport protocol. However, existing literature often evaluates QUIC strictly within Interplanetary Network (IPN) contexts, mixing the fundamental constraints of general challenged networks with the specific architectural issues of a heterogeneous "network of networks". This paper isolates the generalized challenged network problem to evaluate QUIC's end-to-end transport viability. We identify that while QUIC's internal logic is inherently resilient to delay fluctuations when supported by IP-layer SnF, classic Congestion Control Algorithms (CCAs) critically fail due to unreliable signaling and extreme delays. To address this, we propose a comprehensive deployment strategy that combines rigorous QUIC parameter profiling with a novel, volume-aware CCA. This approach bounds in-flight data to a path's routable volume of data rather than relying on classic congestion signals like loss or delay increase. We validate our strategy through a ns-3 simulation of a dynamic "data mule" topology. Results show that a properly configured volume-aware QUIC/IP stack effectively utilizes available bandwidth without exceeding the nodes' storage capabilities. These findings provide initial evidence that QUIC is a viable alternative to DTN for generalized challenged networks, while delimiting the regime &mdash; single-flow, scheduled-contact scenarios with known path volumes &mdash; in which the result currently holds.</p>
+                        </div>
+                    </details>
+
+                    <!-- #70 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#70</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Protocols &amp; Integration</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">CSPCL: A Stepwise, Non-Disruptive Transition to Delay-Tolerant Networking for CubeSat Operators</p>
+                                <p class="text-gray-500 text-xs mt-1">Mathias Durat, Sarah Theoulle, Hugo Ponthieu, Tristan-Mihai Radulescu, Olivier De Jonckère</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">As Delay-Tolerant Networking (DTN) gains increasing traction in the space community, CubeSat operators may face the challenge of adopting DTN capabilities without disrupting existing software stacks built around the CubeSat Space Protocol (CSP). Rather than proposing a full architectural shift, our goal is to offer operators a gentle introduction to DTN, allowing them to experiment with its capabilities while preserving their existing infrastructure. This paper reports on our experience assembling and validating such a non-intrusive full stack in a representative CubeSat context. We evaluate interoperability with three BPA implementations: Hardy, μD3TN, and UNIBO-BP, with A-SABR contact-based routing integrated into two of them. Rather than replacing the existing CSP infrastructure, CSPCL operates as an underlayer, transmitting DTN bundles over CSP to enable DTN capabilities on top of an unmodified CSP network. For the existing applications requiring CSP-to-CSP communication across DTN boundaries, we introduce Charon, a network proxy that encapsulates IP and CAN traffic over the Bundle Protocol, allowing legacy applications to benefit from DTN features transparently. The full stack is validated on two PolarFire RISC-V boards communicating over a CAN bus, mirroring the hardware and transport layer of the Centre Spatial de l'Université de Montpellier's upcoming 12U CubeSat mission. Our results demonstrate end-to-end feasibility on representative flight hardware, and offer a concrete and accessible integration path for CubeSat operators considering a progressive adoption of DTN.</p>
+                        </div>
+                    </details>
+
+                    <!-- #19 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#19</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">MISSION Session</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Security-Aware Route Selection in DTNs: Towards Optimal Key Provisioning</p>
+                                <p class="text-gray-500 text-xs mt-1">Ramiro Detke, Pablo Madoery, Renato Cherini, Juan A. Fraire, Jorge M. Finochietto</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Bundle Protocol Security (BPSec) provides integrity and confidentiality for Delay-Tolerant Networks (DTNs) but deliberately leaves key management to the operator. In space networks, where intermittent contacts preclude interactive key exchange, the adopted security scheme &mdash; End-to-End, Hop-by-Hop, Edge-by-Edge, or Edge-to-Edge &mdash; determines which symmetric keys must be pre-provisioned for each route to remain usable. This paper introduces a security-aware route selection framework that couples routing feasibility with cryptographic provisioning: routes computed via Contact Graph Routing are translated into scheme-induced key scopes, and a mixed-integer linear program minimizes the active key scopes required to reach a target connectivity ratio. Results on a four-plane orbital scenario quantify the trade-off between key provisioning, cryptographic processing, and data-at-rest exposure: End-to-End minimizes exposure and processing at maximal key cost, Hop-by-Hop exhibits the opposite profile, while the edge-based schemes provide practical intermediate operating points, turning BPSec policy selection into a quantitative decision.</p>
+                        </div>
+                    </details>
+
+                    <!-- #27 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#27</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">MISSION Session</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">CGR*: A* Search for Contact Graph Routing</p>
+                                <p class="text-gray-500 text-xs mt-1">Simon Rink, Olivier De Jonckère, Juan A. Fraire, Holger Hermanns</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Routing in space Delay-Tolerant Networks relies on Contact Graph Routing (CGR), standardized within the CCSDS Schedule-Aware Bundle Routing (SABR) framework. Existing SABR implementations use Dijkstra's algorithm, which ignores any information about the remaining cost to the destination and therefore explores many unnecessary states. We propose CGR*, an A*-based variant that exploits domain-specific heuristics to prune this search. Two heuristics are designed: h_Delay, an admissible heuristic suited to delay-dominated deep-space networks, and h_Geo, a greedy geographic heuristic for near-Earth networks, where contact availability rather than propagation delay drives arrival time. Experiments on realistic orbital scenarios show that h_Delay accelerates routing on deep-space networks by up to an order of magnitude with no loss of optimality, while h_Geo speeds up near-Earth routing at the cost of arrival times up to ~2.5× the optimum &mdash; revealing cost-model design, rather than heuristic design alone, as the open challenge for A*-based routing in near-Earth scenarios. CGR* and its heuristics are released as part of the open-source A-SABR library.</p>
+                        </div>
+                    </details>
+
+                    <!-- #37 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#37</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">MISSION Session</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Lifespan-Aware Contact Plan Design for Interplanetary Free-Space Optical Networks</p>
+                                <p class="text-gray-500 text-xs mt-1">Alejandro Matías Toledo, Jason Gerard, Sandra Cespedes, Juan A. Fraire</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Free-space optical (FSO) communication promises to relieve the capacity bottleneck in radio-frequency deep-space networks, but its narrow beams demand precise pointing, acquisition, and tracking (PAT), which in turn requires that link opportunities be scheduled in advance through contact plan design (CPD). Existing CPD schedulers for optical interplanetary backhaul maximize throughput, while battery state-of-charge has been considered only for RF networks, yet none model the irreversible decay of radioisotope thermoelectric generator (RTG) power or its effect on long-term survivability. We extend the Laser Link Scheduler (LLS) with three resource-aware variants: energy-, battery-, and lifespan-aware, that fold RTG decay and optical-terminal consumption into per-node lifetime constraints, and evaluate the trade-off between capacity, fairness, and survivability across Mars-to-Earth constellations of increasing size. We define network lifetime as the point at which data-producing source nodes can no longer transmit, and find that the capacity-greedy LLS schedules 45 to 55% more data than the fairness baseline while consuming the lowest amount of energy. However, we find that survivability is governed by the hardware power margin, not by scheduling, and stays nearly identical across all schedulers at both end-of-life and beginning-of-life RTG power levels. These distinctions matter for mission operations, where expensive scientific payloads must balance data backhaul rate against mission lifetime.</p>
+                        </div>
+                    </details>
+
+                    <!-- #53 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#53</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">D3-CONNECT &amp; Modeling</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Modeling the Performance of Priority Queueing for Space Communication</p>
+                                <p class="text-gray-500 text-xs mt-1">Konrad Fuger, Thomas Caffin Sune, Teresa de Jesús Algarra Uliarte, Andreas Timm-Giel</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5">
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Due to the renewed interest in space exploration in recent years it is expected that the demand for communication services in space will massively increase. As the demand rises, timely and reliable communication becomes a crucial requirement for future missions. Recently traffic prioritization has been demonstrated as a mechanism to improve the quality of service for time-critical data. In this work we propose a mathematical model that describes the delay impact of traffic prioritization on space communication links. Based on a D/M/1 system with two non-preemptive priority classes that captures both retransmission delays over an unreliable channel and queueing delays we derive the full delay distribution for the high priority data. Validated against an extensive simulation campaign across a range of utilizations and priority shares, the model provides a firm lower bound on the Quasi-Realtime probability (the probability of end-to-end delay below 2.5 s), with errors below 5 % at low utilization and up to 38 % at high utilization with a high priority share. For average delay, the model matches simulation almost exactly across all tested configurations.</p>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
             <!-- Posters -->
-            <div class="mt-12 max-w-5xl mx-auto">
-                <h3 class="text-xl font-semibold text-white text-center mb-6">Posters</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">W-KAST: Predictive Optical Link-State Estimation for LEO</p><p class="text-gray-500 text-xs mt-1">Qingfang Jiang, Kanglian Zhao, Jianhao Yu</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Stabilizing the LEO Control Plane with Area Proxy for IS-IS</p><p class="text-gray-500 text-xs mt-1">Yoshiki Uchida, Keisuke Uehara, Shigeya Suzuki</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">User QoS Extension Block (UQEB) for Space DTNs</p><p class="text-gray-500 text-xs mt-1">Teresa de Jesús Algarra Uliarte, Felix Flentge, Andreas Timm-Giel</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Interfacing Strategies for DTN Inter-Networking</p><p class="text-gray-500 text-xs mt-1">Théo Tchilinguirian &amp; Olivier De Jonckère</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Reducing Topology Advertisements via Ground-Station Handover Scheduling</p><p class="text-gray-500 text-xs mt-1">Nicolas Rybowski, Tom Rousseaux, Maxime Piraux, Cristel Pelsser, Olivier Bonaventure</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Algebro-Geometric Foundations for Temporospatial Network Modeling</p><p class="text-gray-500 text-xs mt-1">Alan Hylton · NASA</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Quantifying the Value of ISLs for Autonomous Orbit Determination in the Solar-System Internet</p><p class="text-gray-500 text-xs mt-1">Alice Le Bihan, Juan A. Fraire, Andrea Nardin, Joshua Critchley-Marrows, Fabio Dovis</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">The Open DTN of Things Platform: Architecture, Deployment, and Future Directions</p><p class="text-gray-500 text-xs mt-1">Samo Grasic's student (TBD)</p></div>
-                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Space-Terrestrial Integrated IoT: Research and Open-Source Tools</p><p class="text-gray-500 text-xs mt-1">Benoit Coeugnet, Alexander Choquenaira Florez, Juan A. Fraire</p></div>
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold text-white text-center mb-2">Posters</h3>
+                <p class="text-gray-500 text-center text-sm mb-6">Nine posters on display throughout &middot; click a poster with a chevron to expand its abstract.</p>
+                <div class="space-y-3">
+
+                    <!-- #44 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#44</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">W-KAST: Predictive Optical Link-State Estimation for LEO Space-Terrestrial Networks</p>
+                                <p class="text-gray-500 text-xs mt-1">Qingfang Jiang, Kanglian Zhao, Jianhao Yu</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Low-Earth-orbit (LEO) space-terrestrial optical networks exhibit strong temporal and spatial channel variability driven by satellite geometry and atmospheric turbulence, which complicates stable contact planning and reliable internetworking. This paper proposes W-KAST, a predictive optical link-state estimation framework for LEO space-terrestrial networks. Instead of directly modeling turbulence, W-KAST infers future slant-path Fried-parameter fields as an intermediate representation of optical link quality, enabling proactive estimation of link availability across satellite passes. The model integrates fractal wavelet kernels for multi-scale turbulence representation, Kolmogorov-Arnold Networks for nonlinear spatial mapping, and hierarchical windowed attention for spatiotemporal dependency modeling. Experiments on a calibrated seasonal dataset covering zenith angles from 0° to 80° show that W-KAST outperforms representative baselines, achieving MAEs of 0.2197 cm (0°&ndash;30°) and 0.1571 cm (0°&ndash;80°). The predicted link-state fields further support predictive contact scheduling, ground-station selection, and network resource planning in space-terrestrial systems.</p></div>
+                    </details>
+
+                    <!-- #54 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#54</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Stabilizing the Control Plane of LEO Satellite Constellation Routing with Area Proxy for IS-IS</p>
+                                <p class="text-gray-500 text-xs mt-1">Yoshiki Uchida, Keisuke Uehara, Shigeya Suzuki</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Large low Earth orbit (LEO) constellations can provide space-terrestrial backbone connectivity, but their time-varying inter-satellite topology challenges conventional link-state routing. Frequent orbital link changes can expose the entire control plane, causing Link State PDU (LSP) regeneration, Link State Database (LSDB) variation, and excessive flooding. RFC 9717 mitigates this by grouping adjacent orbits into IS-IS Level 1 stripes and using RFC 9666 Area Proxy to abstract internal topology dynamics. However, it remains unclear how effectively Area Proxy suppresses control-plane churn under different orbital geometries. This paper provides an implementation-level validation of RFC 9717 routing by implementing Area Proxy in OMNeT++/ANSA and evaluating it under multiple time-varying LEO topologies. We generate orbital link events with MATLAB, import them into the simulator, and compare IS-IS behavior with and without Area Proxy in the space segment. Across stable adjacent-plane, large-RAAN-difference, and crossing-plane scenarios, the results show that Area Proxy localizes topology changes, limits external LSDB growth, and reduces control-plane sensitivity to orbital arrangement. We also discuss remaining challenges in reachability, path quality, PCE/SR-TE integration, and alternative abstraction designs.</p></div>
+                    </details>
+
+                    <!-- #64 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#64</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Performance Evaluation of the User Quality of Service Extension Block for Space DTNs</p>
+                                <p class="text-gray-500 text-xs mt-1">Teresa de Jesús Algarra Uliarte, Felix Flentge, Andreas Timm-Giel</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Space networks based on Delay- and Disruption-Tolerant Networking (DTN) must support heterogeneous traffic with diverse requirements regarding latency, reliability, and storage utilization. However, existing DTN protocols provide limited support for Quality of Service (QoS) management. This paper evaluates the User Quality of Service Extension Block (UQEB), a Bundle Protocol (BP) extension that enables per-bundle QoS signalling. Using a discrete-event simulation framework and a realistic Markov-based space channel model, the proposed mechanisms for traffic prioritization, retransmission signalling, and storage management are analyzed. Results show that traffic prioritization reduces latency for time-critical data, retransmission signalling improves delivery reliability, and storage management mechanisms mitigate congestion and storage saturation. Together, these mechanisms provide flexible and effective QoS support for future DTN-based space communication networks and contribute toward the realization of the Solar System Internet (SSI).</p></div>
+                    </details>
+
+                    <!-- #71 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#71</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">On the Design and Benchmarking of Interfacing Strategies for Delay-Tolerant Inter-Networking</p>
+                                <p class="text-gray-500 text-xs mt-1">Théo Tchilinguirian, Olivier De Jonckère</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Conjointly with Schedule-Aware Bundle Routing (SABR), support for inter-regional routing will be a key component of future interplanetary network scalability. Dividing the network into subnetworks (regions) allows SABR to scale by reducing its scope to intra-regional routing. This work focuses on the frontier between intra- and inter-regional routing, assuming that the next-hop region has already been determined by an inter-regional routing process, and studies the mechanisms by which traffic is transferred between adjacent regions. Passageway nodes were originally introduced as nodes belonging simultaneously to the two regions they connect, while passageway contacts were later proposed to reduce the amount of operational knowledge that must be shared between regional administrators. However, a direct comparison of these approaches has been difficult because the transition from passageway nodes to passageway contacts also changes the structure and scope of the regions being interconnected. By extending the passageway-node interfacing strategy, we establish a common framework that enables meaningful comparison. We present the results of a simulated benchmark comparing the two approaches across three network sizes using three routing algorithms. This paper also describes the implementation of these passageway approaches within the A-SABR routing library.</p></div>
+                    </details>
+
+                    <!-- #72 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#72</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Reducing Topology Advertisements in LEO Constellations Through Ground-Station Handover Scheduling</p>
+                                <p class="text-gray-500 text-xs mt-1">Nicolas Rybowski, Tom Rousseaux, Maxime Piraux, Cristel Pelsser, Olivier Bonaventure</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Low Earth Orbit (LEO) satellite constellations enable low-latency global Internet access but introduce continuous topological change that strains routing control planes. A primary source of churn is frequent ground-station feeder-link handovers as satellites move in and out of visibility. In this paper we show that scheduling and controlling these handovers at the ground side is a practical lever to reduce advertised topology changes, diminish transient forwarding inconsistencies, and reduce control-plane synchronization overhead across the constellation. We quantify feeder-link dynamics, introduce a handover-scheduling framework with a set of heuristics that balance usage maximisation and advertisement cost, and evaluate their effect using realistic mobility and simulation models. Our results show that modest, bounded waiting delays at handovers substantially lower the frequency of topology advertisements while preserving connectivity and utilization. We conclude that modest ground-station policies offer a path to more stable, scalable LEO routing and provide guidelines for control-plane design in future satellite Internet systems.</p></div>
+                    </details>
+
+                    <!-- #74 -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">#74</span>
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Towards Algebro-Geometric Foundations for Temporospatial Network Modeling</p>
+                                <p class="text-gray-500 text-xs mt-1">Alan Hylton · NASA</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Space communication networks require routing over intermittent, delayed, and dynamically changing links. Existing Delay Tolerant Networking approaches, including Contact Graph Routing, depend on schedule and topology information that becomes difficult to scale across multi-domain space networks. This paper studies an algebro-geometric model for routing structure. We represent a network graph by an affine picture variety whose points encode geometric realizations of the graph. We show that the induced Zariski topology is too coarse to distinguish routing choices, and we resolve this by constructing an explicit finite étale cover using one orientation variable per edge. The resulting oriented edge cover separates path choices by traversal direction and supports an oriented path sheaf whose sections correspond to directed routing paths. We provide Macaulay2 implementations for constructing the graph variety, the étale cover, and the induced path sheaf. This gives a computational foundation for future work on multi-domain composition and temporal space-network models.</p></div>
+                    </details>
+
+                    <!-- Alice Le Bihan -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Quantifying the Value of ISLs for Autonomous Orbit Determination in the Solar-System Internet</p>
+                                <p class="text-gray-500 text-xs mt-1">Alice Le Bihan, Juan A. Fraire, Andrea Nardin, Joshua Critchley-Marrows, Fabio Dovis</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">The Solar-System Internet (SSI) will interconnect spacecraft across the Solar System through delay-tolerant store-and-forward links. We ask a simple question with practical consequences: beyond moving data, what is such a network worth for <em>navigation</em>? Spacecraft that already exchange data over inter-satellite links (ISLs) can also measure range and range-rate over them and share state estimates, turning the communication fabric into a positioning fabric. We simulate a 22-node, five-body scenario (orbiters at Mercury, Venus, Earth, the Moon, and Mars) and fuse delayed ISL measurements with onboard optical navigation in a decentralized Extended Kalman Filter. Our central result is a <em>value curve</em>: the network-mean position error falls from about 4 km for standalone optical navigation to about 1 km as each node is allowed up to five simultaneous ISLs, with most of the gain captured by the first one or two links. We further show that the light-time delay makes exact cross-covariance tracking ill-posed, that the resulting accuracy is robust to the fusion variant, and that filter <em>consistency</em> remains an open issue. Because the value concentrates in a few well-chosen links under limited transceivers, orbit determination becomes a first-class objective of contact plan design.</p></div>
+                    </details>
+
+                    <!-- Samo Grasic (no abstract yet) -->
+                    <div class="paper-card bg-gray-800 rounded-lg border border-gray-700 px-5 py-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                        </div>
+                        <p class="text-white font-medium leading-snug">The Open DTN of Things Platform: Architecture, Deployment, and Future Directions</p>
+                        <p class="text-gray-500 text-xs mt-1">Samo Grasic's student (TBD)</p>
+                        <p class="text-gray-600 text-xs italic mt-2">Abstract to be announced.</p>
+                    </div>
+
+                    <!-- Coeugnet (no abstract yet) -->
+                    <div class="paper-card bg-gray-800 rounded-lg border border-gray-700 px-5 py-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                        </div>
+                        <p class="text-white font-medium leading-snug">Space-Terrestrial Integrated IoT: Research and Open-Source Tools</p>
+                        <p class="text-gray-500 text-xs mt-1">Benoit Coeugnet, Alexander Choquenaira Florez, Juan A. Fraire</p>
+                        <p class="text-gray-600 text-xs italic mt-2">Abstract to be announced.</p>
+                    </div>
+
                 </div>
             </div>
         </div>
