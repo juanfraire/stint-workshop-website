@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local deploy script (kept out of the public repo)
+deploy.sh
+
+# Never commit deploy keys / secrets if they ever land here
+*.pem
+*.ppk

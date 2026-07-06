@@ -320,15 +320,10 @@
                             <span>Keynotes</span>
                         </a>
 
-                        <div class="flex flex-col items-center space-y-2">
-                            <a href="https://attend.ieee.org/wisee-2026/" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
-                                <span>Submit Paper</span>
-                            </a>
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-stellar-600 bg-opacity-30 text-stellar-300 border border-stellar-600 border-opacity-40">
-                                Deadline: June 15, 2026 (firm)
-                            </span>
-                        </div>
+                        <a href="#program"
+                            class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
+                            <span>Program</span>
+                        </a>
                     </div>
 
                     <!-- Archive link -->
@@ -549,11 +544,7 @@
                             "DTN – Standardisation &amp; Governance: A Perspective from the European Space Agency"
                         </p>
                         <p class="text-gray-400 text-sm mb-4">
-                            Felix Flentge leads the European Space Agency's Solar System Internet (SSI) work in
-                            international standardisation bodies and serves as the SSI-Node-1 Study Manager, ESA's
-                            first mission to put DTN technologies into operational practice. Within CCSDS he chairs
-                            the CFDP Revisions Working Group and is deputy chair of the Delay-Tolerant Networking
-                            Working Group.
+                            Felix Flentge leads the European Space Agency's Solar System Internet (SSI) work on Disruption Tolerant Networking in international standardisation and coordination bodies such as the CCSDS, IOAG, and LunaNet. At ESA, he is responsible for various DTN-related activities covering operational deployment, product development, industrial studies, and academic research.
                         </p>
                         <a href="https://www.linkedin.com/in/felix-flentge/" target="_blank"
                             rel="noopener noreferrer"
@@ -605,79 +596,192 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-white mb-4">Program</h2>
                 <div class="w-20 h-1 bg-gradient-to-r from-orbit-500 to-stellar-600 mx-auto"></div>
+                <div class="mt-6 flex justify-center">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold bg-stellar-600 bg-opacity-20 border border-stellar-600 border-opacity-50 text-stellar-300">
+                        <span class="w-2 h-2 rounded-full bg-stellar-400 animate-pulse-soft"></span>
+                        Preliminary program
+                    </span>
+                </div>
             </div>
 
-            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-                The STINT 2026 program will be announced after the paper acceptance notifications. Below is the
-                expected format of the workshop.
+            <p class="text-gray-400 text-center mb-4 max-w-2xl mx-auto">
+                Two full days, single track. Four keynotes, invited talks, peer-reviewed papers, dedicated
+                MISSION and D3-CONNECT sessions, a poster session, and a closing panel.
             </p>
+            <p class="text-gray-500 text-center text-sm mb-10">This is a tentative, preliminary program &mdash; sessions, talks, and times are subject to change.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-300">
+            <!-- Legend -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 text-xs">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orbit-900 bg-opacity-60 border border-orbit-700 border-opacity-50 text-orbit-300"><span class="w-2 h-2 rounded-full bg-orbit-400"></span>Keynote</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stellar-600 bg-opacity-20 border border-stellar-600 border-opacity-40 text-stellar-300"><span class="w-2 h-2 rounded-full bg-stellar-400"></span>Invited talk</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-700 bg-opacity-60 border border-gray-600 text-gray-300"><span class="w-2 h-2 rounded-full bg-gray-400"></span>Paper</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-900 bg-opacity-40 border border-purple-700 border-opacity-50 text-purple-300"><span class="w-2 h-2 rounded-full bg-purple-400"></span>Panel</span>
+            </div>
 
-                <!-- Keynote Talks -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-orbit-400 flex-shrink-0" fill="none" stroke="currentColor"
-                        stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Keynote Talks</h3>
-                        <p>Invited keynote presentations from leading experts in space networking and DTN research.</p>
+            <!-- Two-day agenda -->
+            <div id="agenda" class="grid lg:grid-cols-2 gap-8">
+
+                <!-- ============ DAY 1 ============ -->
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-orbit-600 to-stellar-600 px-6 py-4">
+                        <h3 class="text-lg font-bold text-white">Day 1 &mdash; Monday, September 14</h3>
+                    </div>
+                    <div class="p-6 space-y-6">
+
+                        <!-- Slot 1 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">09:45&ndash;11:00</span>
+                                <span class="text-gray-500 text-xs">Chair: Juan Fraire</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Opening &amp; Keynote I</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">Open</span><span class="text-gray-300">Opening &amp; welcome &mdash; Organizing Committee</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Edward Birrane</span> <span class="text-gray-500">· JHU/APL</span><br><span class="text-gray-400 italic">"Great networks start with great nodes: building routers for the solar system internet"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span><span class="text-white font-medium">Martin Tanchev</span> <span class="text-gray-500">· Goce Delcev University</span><br><span class="text-gray-400 italic">"Self-Authenticating Addresses for Post-Quantum DTN"</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15 &nbsp;|&nbsp; Lunch · 12:30&ndash;13:30</div>
+
+                        <!-- Slot 2 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">11:15&ndash;12:30</span>
+                                <span class="text-gray-500 text-xs">Chair: Carlo Caini</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Session 1 &mdash; Routing &amp; Topology</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Juan A. Fraire</span><br><span class="text-gray-400 italic">"On the Distribution of DTN Reachability Information: Push-vs-Pull"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Shota Suzuki et al.</span><br><span class="text-gray-400 italic">"IR-CGR: Time-Aware Inter-Region Contact Graph Routing"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Andre Ibrahim et al.</span><br><span class="text-gray-400 italic">"Network-Layer Evaluation of Optical CPD under PAT Constraints"</span></span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Slot 3 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">13:30&ndash;14:45</span>
+                                <span class="text-gray-500 text-xs">Chair: Edward Birrane</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Keynote II &amp; Invited</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Marius Feldmann</span> <span class="text-gray-500">· D3TN</span><br><span class="text-gray-400 italic">"Simplifying Consumption of Delay- and Disruption-Tolerant Networking Capabilities"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span><span class="text-white font-medium">Juan Fraire</span><br><span class="text-gray-400 italic">"Light-Time-Corrected Contact Plans: Re-Introducing Contact Plan Designer"</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 14:45&ndash;15:00</div>
+
+                        <!-- Slot 4 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">15:00&ndash;16:15</span>
+                                <span class="text-gray-500 text-xs">Chair: Alberto Montilla</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Session 2 &mdash; Protocols &amp; Integration</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Carlo Caini et al.</span><br><span class="text-gray-400 italic">"Integrating LoRa Nodes into Global DTN Networks (muON)"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Oriol Fusté et al.</span><br><span class="text-gray-400 italic">"Deploying QUIC in Challenged Networks"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Mathias Durat et al.</span><br><span class="text-gray-400 italic">"CSPCL: Non-Disruptive Transition to DTN for CubeSat Operators"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Pst</span><span class="text-gray-300">Poster Lightning Madness &mdash; 8 posters &times; ~1 min</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center text-xs text-orbit-300 bg-orbit-900 bg-opacity-30 rounded-md py-2">Posters on display throughout &mdash; presented during all coffee breaks</div>
+
                     </div>
                 </div>
 
-                <!-- Invited Talks -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-orbit-400 flex-shrink-0" fill="none" stroke="currentColor"
-                        stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M8 10h.01M12 10h.01M16 10h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Invited Talks</h3>
-                        <p>Presentations by leading experts from academia and industry on cutting-edge networking
-                            topics.</p>
+                <!-- ============ DAY 2 ============ -->
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-orbit-600 to-stellar-600 px-6 py-4">
+                        <h3 class="text-lg font-bold text-white">Day 2 &mdash; Tuesday, September 15</h3>
                     </div>
-                </div>
+                    <div class="p-6 space-y-6">
 
-                <!-- Peer-Reviewed Papers -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-orbit-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M7 8h10M7 12h10M7 16h10M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Peer-Reviewed Papers</h3>
-                        <p class="mb-2">Accepted full papers will be indexed in IEEE Xplore and presented in technical
-                            sessions.</p>
-                        <span class="text-gray-500 text-sm italic">Papers listing — coming soon</span>
-                    </div>
-                </div>
+                        <!-- Slot 5 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">09:45&ndash;11:00</span>
+                                <span class="text-gray-500 text-xs">Chair: Marius Feldmann</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Keynotes III &amp; IV</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Felix Flentge</span> <span class="text-gray-500">· ESA</span><br><span class="text-gray-400 italic">"DTN &mdash; Standardisation &amp; Governance: A Perspective from the European Space Agency"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Alberto Montilla</span> <span class="text-gray-500">· Spatiam</span><br><span class="text-gray-400 italic">"From Missions to Infrastructure: Building the Interplanetary Network"</span></span></li>
+                            </ul>
+                        </div>
 
-                <!-- Panel Discussion -->
-                <div class="p-6 bg-gray-800 rounded-lg shadow-md flex items-start space-x-4">
-                    <svg class="h-8 w-8 text-orbit-400 flex-shrink-0" fill="none" stroke="currentColor"
-                        stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M17 8h2a2 2 0 012 2v9l-4-4H7a2 2 0 01-2-2V8a2 2 0 012-2h2" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 8V6a5 5 0 0110 0v2" />
-                    </svg>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Panel Discussion</h3>
-                        <p>Interactive session featuring domain experts discussing emerging challenges and visions for
-                            space-terrestrial networking.</p>
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15 &nbsp;|&nbsp; Lunch · 12:30&ndash;13:30</div>
+
+                        <!-- Slot 6 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">11:15&ndash;12:30</span>
+                                <span class="text-gray-500 text-xs">Chair: Felix Flentge</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">
+                                <a href="https://mission-project.eu/" target="_blank" rel="noopener noreferrer" class="hover:text-orbit-300">MISSION Session <i class="fas fa-external-link-alt text-xs text-gray-500"></i></a>
+                            </h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span class="text-gray-300">MISSION project introduction</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Ramiro Detke et al.</span><br><span class="text-gray-400 italic">"Security-Aware Route Selection in DTNs: Key Provisioning"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Simon Rink et al.</span><br><span class="text-gray-400 italic">"CGR*: A* Search for Contact Graph Routing"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Alejandro Toledo et al.</span><br><span class="text-gray-400 italic">"Lifespan-Aware Contact Plan Design for Interplanetary FSO Networks"</span></span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Slot 7 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">13:30&ndash;14:45</span>
+                                <span class="text-gray-500 text-xs">Chair: Jorge Finochietto</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">
+                                <a href="https://d3-connect.space/" target="_blank" rel="noopener noreferrer" class="hover:text-orbit-300">D3-CONNECT &amp; Modeling <i class="fas fa-external-link-alt text-xs text-gray-500"></i></a>
+                            </h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">Intro</span><span class="text-gray-300">D3-CONNECT introduction &mdash; Juan Fraire</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span><span class="text-white font-medium">Wesley Woo</span> <span class="text-gray-500">· Virginia Tech</span><br><span class="text-gray-400 italic">"Anyone, Anywhere, not Everyone, Everywhere: Starlink Doesn't End the Digital Divide"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span><span class="text-white font-medium">Tenzin Ukyab</span> <span class="text-gray-500">· UC Berkeley</span><br><span class="text-gray-400 italic">"Beyond the Cone Model: Quantifying the Impact of Beam-Level Constraints on LEO Satellite Networks"</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Konrad Fuger et al.</span><br><span class="text-gray-400 italic">"Modeling the Performance of Priority Queueing for Space Communication"</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 14:45&ndash;15:00</div>
+
+                        <!-- Slot 8 -->
+                        <div>
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-x-3">
+                                <span class="text-orbit-300 font-semibold text-sm">15:00&ndash;16:15</span>
+                                <span class="text-gray-500 text-xs">Moderator: Juan Fraire</span>
+                            </div>
+                            <h4 class="text-white font-semibold mb-3">Panel &amp; Closing</h4>
+                            <ul class="space-y-2.5 text-sm">
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-purple-900 bg-opacity-40 text-purple-300 border border-purple-700 border-opacity-50">Pnl</span><span><span class="text-white font-medium">DTN / Internet Integration</span><br><span class="text-gray-400">Ed Birrane, Scott Burleigh, Felix Flentge, Marius Feldmann, Alberto Montilla</span></span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">End</span><span class="text-gray-300">Closing remarks</span></li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
 
-            <div id="agenda" class="mt-12 text-center">
-                <span class="animate-pulse-soft inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-orbit-900 bg-opacity-60 border border-orbit-700 border-opacity-50 text-orbit-300">
-                    <span class="w-2 h-2 rounded-full bg-orbit-400 inline-block"></span>
-                    Full agenda coming after acceptance notifications &mdash; July 2026
-                </span>
+            <!-- Posters -->
+            <div class="mt-12 max-w-5xl mx-auto">
+                <h3 class="text-xl font-semibold text-white text-center mb-6">Posters</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">W-KAST: Predictive Optical Link-State Estimation for LEO</p><p class="text-gray-500 text-xs mt-1">Qingfang Jiang et al.</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Stabilizing the LEO Control Plane with Area Proxy for IS-IS</p><p class="text-gray-500 text-xs mt-1">Yoshiki Uchida et al.</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">User QoS Extension Block (UQEB) for Space DTNs</p><p class="text-gray-500 text-xs mt-1">Teresa de Jesús Algarra Uliarte et al.</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Interfacing Strategies for DTN Inter-Networking</p><p class="text-gray-500 text-xs mt-1">Théo Tchilinguirian &amp; Olivier De Jonckère</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Reducing Topology Advertisements via Ground-Station Handover Scheduling</p><p class="text-gray-500 text-xs mt-1">Nicolas Rybowski et al.</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Algebro-Geometric Foundations for Temporospatial Network Modeling</p><p class="text-gray-500 text-xs mt-1">Alan Hylton · NASA</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">Quantifying the Value of ISLs for Autonomous Orbit Determination in the Solar-System Internet</p><p class="text-gray-500 text-xs mt-1">Alice Le Bihan et al.</p></div>
+                    <div class="p-4 bg-gray-800 rounded-lg border border-gray-700"><p class="text-white text-sm font-medium">The Open DTN of Things Platform: Architecture, Deployment, and Future Directions</p><p class="text-gray-500 text-xs mt-1">Samo Grasic's student (TBD)</p></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1032,7 +1136,7 @@
                 <div class="w-20 h-1 bg-gradient-to-r from-orbit-500 to-stellar-600 mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-center text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center justify-center text-center">
                 <!-- D3TN -->
                 <a href="https://d3tn.com/" target="_blank" rel="noopener noreferrer"
                     class="flex flex-col items-center space-y-4 hover:scale-105 transition duration-300">
@@ -1045,6 +1149,13 @@
                     class="flex flex-col items-center space-y-4 hover:scale-105 transition duration-300">
                     <img src="logo-ipnsig.svg" alt="IPNSIG Logo" class="h-20 md:h-24 w-auto" />
                     <span class="text-lg font-semibold text-gray-200">IPNSIG</span>
+                </a>
+
+                <!-- MISSION -->
+                <a href="https://mission-project.eu/" target="_blank" rel="noopener noreferrer"
+                    class="flex flex-col items-center space-y-4 hover:scale-105 transition duration-300">
+                    <img src="mission-logo.svg" alt="MISSION Logo" class="h-20 md:h-24 w-auto" />
+                    <span class="text-lg font-semibold text-gray-200">MISSION</span>
                 </a>
             </div>
         </div>
