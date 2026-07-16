@@ -733,7 +733,7 @@
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Carlo Caini et al.</span><br><span class="text-gray-400 italic">"Integrating LoRa Nodes into Global DTN Networks (muON)"</span></span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Oriol Fusté et al.</span><br><span class="text-gray-400 italic">"Deploying QUIC in Challenged Networks"</span></span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Mathias Durat et al.</span><br><span class="text-gray-400 italic">"CSPCL: Non-Disruptive Transition to DTN for CubeSat Operators"</span></span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Pst</span><span class="text-gray-300">Poster Lightning Madness &mdash; 9 posters &times; ~1 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Pst</span><span class="text-gray-300">Poster Lightning Madness &mdash; 10 posters &times; ~1 min</span></li>
                             </ul>
                         </div>
 
@@ -821,7 +821,7 @@
             <!-- Accepted Papers -->
             <div class="mt-16 max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold text-white text-center mb-2">Accepted Papers</h3>
-                <p class="text-gray-500 text-center text-sm mb-6">Ten peer-reviewed full papers &middot; click a paper to expand its summary.</p>
+                <p class="text-gray-500 text-center text-sm mb-6">Ten peer-reviewed full papers &middot; click a paper to expand its abstract.</p>
                 <div class="space-y-3">
 
                     <!-- #33 -->
@@ -1010,7 +1010,7 @@
             <!-- Posters -->
             <div class="mt-16 max-w-4xl mx-auto">
                 <h3 class="text-xl font-semibold text-white text-center mb-2">Posters</h3>
-                <p class="text-gray-500 text-center text-sm mb-3">Nine posters on display throughout &middot; click a poster with a chevron to expand its abstract.</p>
+                <p class="text-gray-500 text-center text-sm mb-3">Ten posters on display throughout &middot; click a poster with a chevron to expand its abstract.</p>
                 <p class="text-center mb-6">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-stellar-600 bg-opacity-20 border border-stellar-600 border-opacity-40 text-stellar-300">
                         <i class="fas fa-ruler-combined text-[10px]"></i>
@@ -1149,6 +1149,21 @@
                         <p class="text-gray-500 text-xs mt-1">Benoit Coeugnet, Alexander Choquenaira Florez, Juan A. Fraire</p>
                         <p class="text-gray-600 text-xs italic mt-2">Abstract to be announced.</p>
                     </div>
+
+                    <!-- LunaNet-Sim (Jamal) -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">LunaNet-Sim: An Open-Source Browser-Based 3D Testbed for Cislunar Delay-Tolerant Networking with Verified TCPCLv4 Interoperability</p>
+                                <p class="text-gray-500 text-xs mt-1">Syed Talha Jamal · SSUET, Karachi, Pakistan</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Reliable communication across Earth, lunar orbit, and the Moon's surface is essential for sustained cislunar exploration under programmes such as NASA's Artemis. LunaNet addresses this need through a Delay-Tolerant Networking (DTN) architecture based on Bundle Protocol Version 7, enabling data exchange across long-delay, intermittent, and disruption-prone links. However, available DTN and LunaNet simulation platforms are often commercially licensed, dependent on specialised Linux environments, or limited in interactive three-dimensional visualisation. These constraints reduce accessibility for students, educators, and independent researchers and leave a gap in practical, standards-based interoperability testing. This paper presents LunaNet-Sim, an open-source, browser-based three-dimensional testbed for modelling, visualising, and evaluating cislunar DTN operations. The platform uses CesiumJS with astronomical ephemeris data to represent an Earth&ndash;Moon communication topology comprising terrestrial, geostationary, cislunar orbital, and lunar surface nodes. Its protocol layer implements RFC 9171-compliant store-and-forward bundle transfer, Contact Graph Routing, Greedy Hierarchical routing, line-of-sight verification, class-of-service priority queues, fault injection, and real-time mission analytics. Interoperability was evaluated by connecting the simulator to Aalyria Technologies' Hardy Bundle Protocol Agent through a persistent TCPCLv4 session compliant with RFC 9174. End-to-end delivery was traced from a simulated lunar rover through orbital and terrestrial gateways to Hardy, with XFER_ACK messages confirming bundle reception. Under nominal conditions, the tested topology achieved a 100% packet delivery ratio. During simulated blackout conditions, priority-based buffer management removed lower-priority traffic before critical bundles, demonstrating disruption-aware storage control. These results show that LunaNet-Sim provides an accessible environment for studying cislunar routing, traffic prioritisation, fault tolerance, and standards-based interoperability. By combining realistic orbital visualisation with an external production-grade DTN endpoint, the platform connects conceptual simulation with implementation-level validation. It can support reproducible experimentation, teaching, protocol comparison, and collaborative development of communication strategies for emerging lunar missions. Its browser-native design lowers deployment barriers while preserving direct observation of routes, disruptions, queues, and acknowledgements.</p></div>
+                    </details>
 
                 </div>
             </div>
