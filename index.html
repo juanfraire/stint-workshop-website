@@ -248,6 +248,8 @@
                         class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Dates</a>
                     <a href="#venue"
                         class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Venue</a>
+                    <a href="#register"
+                        class="nav-link text-stellar-300 hover:text-white px-3 py-2 text-sm font-semibold">Register</a>
                     <a href="#committee"
                         class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Committee</a>
                     <a href="#history"
@@ -286,6 +288,8 @@
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Dates</a>
                 <a href="#venue"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Venue</a>
+                <a href="#register"
+                    class="block px-3 py-2 rounded-md text-base font-semibold text-stellar-300 hover:text-white hover:bg-gray-700">Register</a>
                 <a href="#committee"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Committee</a>
                 <a href="#history"
@@ -364,14 +368,19 @@
                     <div
                         class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
 
-                        <a href="#speakers"
-                            class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
-                            <span>Keynotes</span>
+                        <a href="#register"
+                            class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-semibold rounded-md shadow-lg text-white bg-gradient-to-r from-orbit-500 to-stellar-500 hover:from-orbit-600 hover:to-stellar-600 transition duration-150 ease-in-out">
+                            <span>Register</span>
                         </a>
 
                         <a href="#program"
                             class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
                             <span>Program</span>
+                        </a>
+
+                        <a href="#speakers"
+                            class="inline-flex items-center justify-center w-44 px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
+                            <span>Keynotes</span>
                         </a>
                     </div>
 
@@ -1130,25 +1139,35 @@
                         <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">The Solar-System Internet (SSI) will interconnect spacecraft across the Solar System through delay-tolerant store-and-forward links. We ask a simple question with practical consequences: beyond moving data, what is such a network worth for <em>navigation</em>? Spacecraft that already exchange data over inter-satellite links (ISLs) can also measure range and range-rate over them and share state estimates, turning the communication fabric into a positioning fabric. We simulate a 22-node, five-body scenario (orbiters at Mercury, Venus, Earth, the Moon, and Mars) and fuse delayed ISL measurements with onboard optical navigation in a decentralized Extended Kalman Filter. Our central result is a <em>value curve</em>: the network-mean position error falls from about 4 km for standalone optical navigation to about 1 km as each node is allowed up to five simultaneous ISLs, with most of the gain captured by the first one or two links. We further show that the light-time delay makes exact cross-covariance tracking ill-posed, that the resulting accuracy is robust to the fusion variant, and that filter <em>consistency</em> remains an open issue. Because the value concentrates in a few well-chosen links under limited transceivers, orbit determination becomes a first-class objective of contact plan design.</p></div>
                     </details>
 
-                    <!-- Samo Grasic (no abstract yet) -->
-                    <div class="paper-card bg-gray-800 rounded-lg border border-gray-700 px-5 py-4">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
-                        </div>
-                        <p class="text-white font-medium leading-snug">The Open DTN of Things Platform: Architecture, Deployment, and Future Directions</p>
-                        <p class="text-gray-500 text-xs mt-1">Samo Grasic's student (TBD)</p>
-                        <p class="text-gray-600 text-xs italic mt-2">Abstract to be announced.</p>
-                    </div>
+                    <!-- Moez Altayeb -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Ultra Low-Power DTN Framework for LoRaWAN</p>
+                                <p class="text-gray-500 text-xs mt-1">Moez Altayeb · ICTP, Trieste, Italy</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Integrating Delay-Tolerant Networking with LoRaWAN promises resilient long-range IoT connectivity, yet gateway power demands restrict deployment in extreme environments. We present an ultra-low-power DTN&ndash;LoRaWAN architecture enabling autonomous operation for multiple years in underwater, underground, mountainous, and space-linked scenarios. Our system introduces a DTN-aware sleep&ndash;wake scheduling algorithm, an ML-driven energy-optimization module, and a LoRaWAN-adapted DTN bundle format. A key contribution of this work is a multi-path DTN offloading gateway capable of delivering stored bundles through satellite links, Wi-Fi, LoRaWAN repeaters, and Meshtastic mesh nodes, dramatically increasing delivery opportunities and ensuring robust end-to-end connectivity in environments where conventional gateways cannot operate. Demonstrations on ocean-glider platforms show reliable underwater data harvesting, long-term DTN storage, and satellite uplink upon resurfacing, with significant reductions in gateway energy consumption. This work unlocks DTN&ndash;LoRaWAN integration for environments where continuous power and stable connectivity are impossible.</p></div>
+                    </details>
 
-                    <!-- Coeugnet (no abstract yet) -->
-                    <div class="paper-card bg-gray-800 rounded-lg border border-gray-700 px-5 py-4">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
-                        </div>
-                        <p class="text-white font-medium leading-snug">Space-Terrestrial Integrated IoT: Research and Open-Source Tools</p>
-                        <p class="text-gray-500 text-xs mt-1">Benoit Coeugnet, Alexander Choquenaira Florez, Juan A. Fraire</p>
-                        <p class="text-gray-600 text-xs italic mt-2">Abstract to be announced.</p>
-                    </div>
+                    <!-- Coeugnet -->
+                    <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
+                        <summary class="cursor-pointer px-5 py-4 flex items-start justify-between gap-4">
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-[11px] text-gray-500 uppercase tracking-wide">Poster</span>
+                                </div>
+                                <p class="paper-title text-white font-medium leading-snug transition">Space-Terrestrial Integrated IoT: Research and Open-Source Tools</p>
+                                <p class="text-gray-500 text-xs mt-1">Benoît Coeugnet, Alexander Choquenaira Florez, Juan A. Fraire · Inria Lyon, France</p>
+                            </div>
+                            <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Direct-to-satellite IoT (DtS-IoT) connects sensors in places terrestrial infrastructure will never reach, and its design space resists closed-form treatment: blind repetition, intermittent visibility, massive uncoordinated access, and store-and-forward delivery all interact. FLoRaSat is our open-source simulator for this regime, modeling LoRa/LoRaWAN uplinks, LEO orbital dynamics driven by real TLE sets, inter-satellite cross-links, and joint medium-access and routing evaluation. This poster presents the tool and the research it has unlocked. A recent performance overhaul moves FLoRaSat from illustrative scenarios to operational scale: campaigns with 100,000 devices over a Kineis-class constellation, or 10,000 devices over a Starlink-class store-and-forward architecture, now run end to end in minutes on a laptop. That headroom changed the questions we could ask. We show three lines of work built on it: 1) analytical models of repetition-based MAC in sparse constellations, calibrated on operator field measurements and validated against FLoRaSat within 3%, which return optimal retransmission parameters in seconds; 2) an ML Sandbox that embeds tiny on-device predictors into closed-loop simulation, letting a blind terminal decline transmissions it expects to lose; 3) and an emerging delay-tolerant networking layer in which contact graph routing is integrated with LoRa/LoRaWAN, extending DtS-IoT from single-hop passes to multi-hop, schedule-aware delivery. The poster closes with the roadmap and an invitation to build on the tool.</p></div>
+                    </details>
 
                     <!-- LunaNet-Sim (Jamal) -->
                     <details class="paper-card group bg-gray-800 rounded-lg border border-gray-700">
@@ -1292,6 +1311,88 @@
                         </iframe>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section id="register" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Registration</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-orbit-500 to-stellar-600 mx-auto"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gray-900 rounded-xl border border-gray-700 p-8">
+                <p class="text-gray-300 mb-4">
+                    STINT 2026 is a workshop <strong class="text-white">within IEEE WiSEE 2026</strong>. Attending STINT
+                    requires a single <strong class="text-white">IEEE WiSEE 2026 registration</strong>, which grants access
+                    to the full conference and all of its workshops, including STINT. There is <strong class="text-white">no
+                    separate STINT-only fee</strong>.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    Registration is <span class="text-stellar-300 font-medium">open now</span> and handled entirely through
+                    IEEE WiSEE 2026 (hosted by KU Leuven). Use the button below to register and to see the current, official
+                    fees, payment options, and deadlines.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4 mb-8">
+                    <a href="https://www.wisee2026.org/registration-2/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-md shadow-lg text-white bg-gradient-to-r from-orbit-500 to-stellar-500 hover:from-orbit-600 hover:to-stellar-600 transition duration-150 ease-in-out">
+                        Register via IEEE WiSEE 2026
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-stellar-600 bg-opacity-20 border border-stellar-600 border-opacity-40 text-stellar-300">
+                        <span class="w-2 h-2 rounded-full bg-stellar-400"></span>
+                        Early-bird deadline: August 14, 2026
+                    </span>
+                </div>
+
+                <h3 class="text-lg font-semibold text-white mb-3">Registration fees</h3>
+                <div class="overflow-x-auto rounded-lg border border-gray-700">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-800 text-gray-400 uppercase text-xs">
+                            <tr>
+                                <th class="px-4 py-3 font-medium">Category</th>
+                                <th class="px-4 py-3 font-medium text-right">Early (before Aug 14)</th>
+                                <th class="px-4 py-3 font-medium text-right">Late (after Aug 14)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700 text-gray-300">
+                            <tr>
+                                <td class="px-4 py-3">IEEE Member</td>
+                                <td class="px-4 py-3 text-right">&euro;590</td>
+                                <td class="px-4 py-3 text-right">&euro;735</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Non-IEEE Member</td>
+                                <td class="px-4 py-3 text-right">&euro;710</td>
+                                <td class="px-4 py-3 text-right">&euro;1,050</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">IEEE Life / Student Member</td>
+                                <td class="px-4 py-3 text-right">&euro;490</td>
+                                <td class="px-4 py-3 text-right">&euro;735</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">IEEE Life / Student + Poster <span class="text-gray-500">(no banquet, limited slots)</span></td>
+                                <td class="px-4 py-3 text-right">&euro;350</td>
+                                <td class="px-4 py-3 text-right text-gray-500">&mdash;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-gray-400 text-sm mt-4">
+                    Extra banquet ticket: &euro;120. Payment is made online or by bank transfer through KU Leuven during
+                    registration. Fees, categories, and deadlines are set by IEEE WiSEE 2026 &mdash; the
+                    <a href="https://www.wisee2026.org/registration-2/" target="_blank" rel="noopener noreferrer" class="text-orbit-400 hover:underline">official registration page</a>
+                    always has the current details. Registration questions:
+                    <a href="mailto:natalie.buyckx@kuleuven.be" class="text-orbit-400 hover:underline">natalie.buyckx@kuleuven.be</a>.
+                </p>
             </div>
         </div>
     </section>
