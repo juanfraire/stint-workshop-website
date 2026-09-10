@@ -7,3 +7,10 @@ deploy.sh
 # Never commit deploy keys / secrets if they ever land here
 *.pem
 *.ppk
+
+# Author PDFs: deployed to the web server, but kept out of the public repo.
+# These are IEEE camera-ready manuscripts and author posters -- deploy.sh reads
+# them straight from the filesystem, so ignoring them here does not affect
+# publishing. Keep the local folders; just never commit their contents.
+papers/
+posters/
