@@ -53,9 +53,16 @@
       "url": "https://stintworkshops.org/",
       "location": {
         "@type": "Place",
-        "name": "KU Leuven",
+        "name": "Irish College \u2013 Iers College Leuven",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 50.87641429487387,
+          "longitude": 4.6962072358573455
+        },
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Janseniusstraat 1",
+          "postalCode": "3000",
           "addressLocality": "Leuven",
           "addressCountry": "BE"
         }
@@ -1147,7 +1154,7 @@
                             </div>
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Deploying the Solar System Internet (SSI), the envisioned scalable infrastructure for next-generation space communications, will require tools to validate and optimise enabling technologies and communication architectures under realistic conditions. To address the need for high-fidelity simulation and visualisation of orbital dynamics and contact opportunities in Interplanetary Network (IPN) scenarios, we developed a two-part tool suite. IPN-godot generates customisable IPN scenarios using GODOTPY, the Python interface of the European Space Agency&rsquo;s astrodynamics library GODOT. IPN-v, built in Unity, renders them in 3D to expose their complex dynamics, which are governed by propagation delays and link disruptions. Users can then inspect satellite visibilities, analyse logical contact plans, and follow data as it traverses the network. Beyond their current IPN simulation capabilities, these two tools are also building blocks for a broader effort: a Solar System Internet Digital Twin (SSI-DT) bringing orbital motion, spacecraft and environment models, ground-segment scheduling, Delay-Tolerant Networking protocol stacks, and operational data flows into a single framework offering live monitoring, network management, statistics, prediction and visualisation. This poster presents both tools, their architecture and current capabilities, and invites feedback on the SSI-DT roadmap they lay the ground for.</p></div>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Deploying the Solar System Internet (SSI), the envisioned scalable infrastructure for next-generation space communications, will require tools to validate and optimise enabling technologies and communication architectures under realistic conditions. To address the need for high-fidelity simulation and visualisation of orbital dynamics and contact opportunities in Interplanetary Network (IPN) scenarios, we developed a two-part tool suite. IPN-godot generates customisable IPN scenarios using GODOTPY, the Python interface of the European Space Agency&rsquo;s astrodynamics library GODOT. IPN-v, built in Unity, renders them in 3D to expose their complex dynamics, which are governed by propagation delays and link disruptions. Users can then inspect satellite visibilities, analyse logical contact plans, and follow data as it traverses the network. Beyond their current IPN simulation capabilities, these two tools are also building blocks for a broader effort: a Solar System Internet Digital Twin (SSI-DT) bringing orbital motion, spacecraft and environment models, ground-segment scheduling, Delay-Tolerant Networking protocol stacks, and operational data flows into a single framework offering live monitoring, network management, statistics, prediction and visualisation. This poster presents both tools, their architecture and current capabilities, and invites feedback on the SSI-DT roadmap they lay the ground for.</p><div class="mt-3 text-right"><a href="posters/stint2026-poster-lebihan.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div></div>
                     </details>
 
                     <!-- Moez Altayeb -->
@@ -1177,7 +1184,7 @@
                             </div>
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
-                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Direct-to-satellite IoT (DtS-IoT) connects sensors in places terrestrial infrastructure will never reach, and its design space resists closed-form treatment: blind repetition, intermittent visibility, massive uncoordinated access, and store-and-forward delivery all interact. FLoRaSat is our open-source simulator for this regime, modeling LoRa/LoRaWAN uplinks, LEO orbital dynamics driven by real TLE sets, inter-satellite cross-links, and joint medium-access and routing evaluation. This poster presents the tool and the research it has unlocked. A recent performance overhaul moves FLoRaSat from illustrative scenarios to operational scale: campaigns with 100,000 devices over a Kineis-class constellation, or 10,000 devices over a Starlink-class store-and-forward architecture, now run end to end in minutes on a laptop. That headroom changed the questions we could ask. We show three lines of work built on it: 1) analytical models of repetition-based MAC in sparse constellations, calibrated on operator field measurements and validated against FLoRaSat within 3%, which return optimal retransmission parameters in seconds; 2) an ML Sandbox that embeds tiny on-device predictors into closed-loop simulation, letting a blind terminal decline transmissions it expects to lose; 3) and an emerging delay-tolerant networking layer in which contact graph routing is integrated with LoRa/LoRaWAN, extending DtS-IoT from single-hop passes to multi-hop, schedule-aware delivery. The poster closes with the roadmap and an invitation to build on the tool.</p></div>
+                        <div class="px-5 pb-5"><p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Direct-to-satellite IoT (DtS-IoT) connects sensors in places terrestrial infrastructure will never reach, and its design space resists closed-form treatment: blind repetition, intermittent visibility, massive uncoordinated access, and store-and-forward delivery all interact. FLoRaSat is our open-source simulator for this regime, modeling LoRa/LoRaWAN uplinks, LEO orbital dynamics driven by real TLE sets, inter-satellite cross-links, and joint medium-access and routing evaluation. This poster presents the tool and the research it has unlocked. A recent performance overhaul moves FLoRaSat from illustrative scenarios to operational scale: campaigns with 100,000 devices over a Kineis-class constellation, or 10,000 devices over a Starlink-class store-and-forward architecture, now run end to end in minutes on a laptop. That headroom changed the questions we could ask. We show three lines of work built on it: 1) analytical models of repetition-based MAC in sparse constellations, calibrated on operator field measurements and validated against FLoRaSat within 3%, which return optimal retransmission parameters in seconds; 2) an ML Sandbox that embeds tiny on-device predictors into closed-loop simulation, letting a blind terminal decline transmissions it expects to lose; 3) and an emerging delay-tolerant networking layer in which contact graph routing is integrated with LoRa/LoRaWAN, extending DtS-IoT from single-hop passes to multi-hop, schedule-aware delivery. The poster closes with the roadmap and an invitation to build on the tool.</p><div class="mt-3 text-right"><a href="posters/stint2026-poster-coeugnet.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div></div>
                     </details>
 
                     <!-- LunaNet-Sim (Jamal) -->
@@ -1309,31 +1316,34 @@
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
                     <div>
-                        <h3 class="text-xl font-semibold text-white mb-3">KU Leuven &mdash; Leuven, Belgium</h3>
+                        <h3 class="text-xl font-semibold text-white mb-1">Irish College &ndash; Iers College Leuven</h3>
+                        <p class="text-gray-400 text-sm mb-4">Janseniusstraat 1, 3000 Leuven, Belgium</p>
                         <p class="text-gray-300 mb-4">
-                            STINT 2026 will be held at KU Leuven, one of Europe's oldest and most renowned research
-                            universities, founded in 1425. Located in the historic city of Leuven, Belgium, KU Leuven
-                            is consistently ranked among the most innovative universities in Europe.
+                            STINT 2026 runs in the IEEE WiSEE 2026 venue, the historic Irish College in the centre of
+                            Leuven, hosted by KU Leuven. The registration desk opens at the Irish College on
+                            Monday 14 September from 08:15; pick up your badge there.
                         </p>
-                        <p class="text-gray-300 mb-6">
-                            Leuven is easily accessible from Brussels Airport (BRU), approximately 30 minutes by train,
-                            and is well connected to major European cities.
-                        </p>
-                        <a href="https://www.kuleuven.be/english/kuleuven" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
-                            KU Leuven Website
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
+                        <ul class="text-gray-300 text-sm space-y-1.5 mb-6">
+                            <li class="flex gap-2"><i class="fas fa-plane-arrival text-orbit-400 mt-1 w-4 text-center"></i><span><span class="text-white">Brussels Airport (BRU):</span> train from the station under the terminal, about 15 minutes to Leuven.</span></li>
+                            <li class="flex gap-2"><i class="fas fa-train text-orbit-400 mt-1 w-4 text-center"></i><span><span class="text-white">Brussels (Midi, Central, North):</span> about 30 minutes by train. Book to <em>Leuven</em>, not Louvain-la-Neuve.</span></li>
+                            <li class="flex gap-2"><i class="fas fa-walking text-orbit-400 mt-1 w-4 text-center"></i><span><span class="text-white">In town:</span> Leuven is compact and the centre is easily walked; De Lijn buses take contactless cards.</span></li>
+                        </ul>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.87641429487387,4.6962072358573455" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-orbit-600 hover:bg-orbit-700 transition duration-150 ease-in-out">
+                                <i class="fas fa-map-marker-alt mr-2"></i>Open in Google Maps
+                            </a>
+                            <a href="https://www.wisee2026.org/venue/" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border border-gray-600 text-gray-300 hover:text-white hover:border-orbit-500 hover:bg-gray-800 transition">
+                                WiSEE venue &amp; travel info <i class="fas fa-external-link-alt text-xs ml-2 text-gray-500"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="rounded-lg overflow-hidden shadow-lg border border-gray-700">
                         <iframe
-                            src="https://maps.google.com/maps?q=KU+Leuven,+Leuven,+Belgium&output=embed"
+                            src="https://maps.google.com/maps?q=50.87641429487387,4.6962072358573455&z=16&output=embed"
                             width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" class="w-full" title="KU Leuven map">
+                            referrerpolicy="no-referrer-when-downgrade" class="w-full" title="Irish College Leuven map">
                         </iframe>
                     </div>
                 </div>

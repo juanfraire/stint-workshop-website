@@ -27,11 +27,12 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:stint2026-day1-slot1@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260914T094500
 DTEND;TZID=Europe/Brussels:20260914T110000
 SUMMARY:STINT 2026 · Opening & Keynote I
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Juan Fraire\n\n09:45  Opening & welcome — Organizing C
  ommittee (10 min)\n09:55  Keynote — Edward Birrane (JHU/APL): "Great net
@@ -45,11 +46,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot2@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260914T111500
 DTEND;TZID=Europe/Brussels:20260914T123000
 SUMMARY:STINT 2026 · Session 1 — Routing & Topology
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Carlo Caini\n\n11:15  Paper — Juan A. Fraire: "On the 
  Distribution of DTN Reachability Information: Push-vs-Pull" (20 min)\n11:3
@@ -63,11 +65,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot3@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260914T133000
 DTEND;TZID=Europe/Brussels:20260914T144500
 SUMMARY:STINT 2026 · Keynote II & Invited
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Edward Birrane\n\n13:30  Keynote — Marius Feldmann (D3
  TN): "Simplifying Consumption of Delay- and Disruption-Tolerant Networking
@@ -80,11 +83,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot4@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260914T150000
 DTEND;TZID=Europe/Brussels:20260914T161500
 SUMMARY:STINT 2026 · Session 2 — Protocols & Integration
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Alberto Montilla\n\n15:00  Paper — Carlo Caini et al.:
   "Integrating LoRa Nodes into Global DTN Networks (muON)" (20 min)\n15:20 
@@ -98,11 +102,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot5@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260915T094500
 DTEND;TZID=Europe/Brussels:20260915T110000
 SUMMARY:STINT 2026 · Keynotes III & IV
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Marius Feldmann\n\n09:45  Keynote — Felix Flentge (ESA
  ): "DTN — Standardisation & Governance: A Perspective from the European 
@@ -115,11 +120,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot6@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260915T111500
 DTEND;TZID=Europe/Brussels:20260915T123000
 SUMMARY:STINT 2026 · MISSION Session
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Felix Flentge\n\n11:15  MISSION project introduction —
   Jorge Finochietto (10 min)\n11:25  Paper — Ramiro Detke et al.: "Securi
@@ -134,11 +140,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot7@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260915T133000
 DTEND;TZID=Europe/Brussels:20260915T144500
 SUMMARY:STINT 2026 · D3-CONNECT & Modeling
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Chair: Jorge Finochietto\n\n13:30  D3-CONNECT introduction — 
  Juan Fraire (5 min)\n13:35  Invited talk — Wesley Woo (Virginia Tech): "
@@ -154,11 +161,12 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot8@stintworkshops.org
-DTSTAMP:20260911T065514Z
+DTSTAMP:20260912T205116Z
 DTSTART;TZID=Europe/Brussels:20260915T150000
 DTEND;TZID=Europe/Brussels:20260915T161500
 SUMMARY:STINT 2026 · Panel & Closing
-LOCATION:KU Leuven\, Leuven\, Belgium
+LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
+ euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Moderator: Juan Fraire\n\n15:00  Panel — DTN / Internet Integ
  ration: Ed Birrane\, Felix Flentge\, Marius Feldmann\, Alberto Montilla (6
