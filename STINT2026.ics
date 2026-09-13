@@ -27,7 +27,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:stint2026-day1-slot1@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260914T094500
 DTEND;TZID=Europe/Brussels:20260914T110000
 SUMMARY:STINT 2026 · Opening & Keynote I
@@ -46,7 +46,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot2@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260914T111500
 DTEND;TZID=Europe/Brussels:20260914T123000
 SUMMARY:STINT 2026 · Session 1 — Routing & Topology
@@ -65,7 +65,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot3@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260914T133000
 DTEND;TZID=Europe/Brussels:20260914T144500
 SUMMARY:STINT 2026 · Keynote II & Invited
@@ -83,7 +83,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day1-slot4@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260914T150000
 DTEND;TZID=Europe/Brussels:20260914T161500
 SUMMARY:STINT 2026 · Session 2 — Protocols & Integration
@@ -102,7 +102,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot5@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260915T094500
 DTEND;TZID=Europe/Brussels:20260915T110000
 SUMMARY:STINT 2026 · Keynotes III & IV
@@ -120,7 +120,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot6@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260915T111500
 DTEND;TZID=Europe/Brussels:20260915T123000
 SUMMARY:STINT 2026 · MISSION Session
@@ -140,7 +140,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot7@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260915T133000
 DTEND;TZID=Europe/Brussels:20260915T144500
 SUMMARY:STINT 2026 · D3-CONNECT & Modeling
@@ -161,7 +161,7 @@ TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:stint2026-day2-slot8@stintworkshops.org
-DTSTAMP:20260913T103116Z
+DTSTAMP:20260913T141837Z
 DTSTART;TZID=Europe/Brussels:20260915T150000
 DTEND;TZID=Europe/Brussels:20260915T161500
 SUMMARY:STINT 2026 · Panel & Closing
@@ -169,9 +169,10 @@ LOCATION:Irish College – Iers College Leuven\, Janseniusstraat 1\, 3000 L
  euven\, Belgium
 URL:https://stintworkshops.org/#program
 DESCRIPTION:Moderator: Juan Fraire\n\n15:00  Panel — DTN / Internet Integ
- ration: Ed Birrane\, Felix Flentge\, Marius Feldmann\, Alberto Montilla (6
- 0 min)\n16:00  Closing remarks (10 min)\n\nAll times are local (Europe/Bru
- ssels\, CEST).\nFull programme: https://stintworkshops.org/#program
+ ration: Ed Birrane\, Felix Flentge\, Marius Feldmann\, Alberto Montilla\, 
+ Kanglian Zhao (60 min)\n16:00  Closing remarks (10 min)\n\nAll times are l
+ ocal (Europe/Brussels\, CEST).\nFull programme: https://stintworkshops.org
+ /#program
 CATEGORIES:STINT 2026,Workshop
 TRANSP:OPAQUE
 END:VEVENT
