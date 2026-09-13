@@ -14,3 +14,5 @@ deploy.sh
 # publishing. Keep the local folders; just never commit their contents.
 papers/
 posters/
+# Presentation PDFs (opening deck, later talks): same treatment as above.
+slides/
