@@ -203,6 +203,68 @@
         .paper-card .chevron { transition: transform 0.25s ease; }
         .paper-card[open] .chevron { transform: rotate(180deg); }
         .paper-card summary:hover .paper-title { color: #fdba74; }
+
+        /* Photo band (#photos): drifting rows of tiles fed by gallery/gallery.js */
+        .pb-band { --pb-h: 150px; --pb-fade: 44px; position: relative; }
+        @media (min-width: 768px) { .pb-band { --pb-h: 210px; --pb-fade: 110px; } }
+        .pb-band::before, .pb-band::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: var(--pb-fade); z-index: 2; pointer-events: none;
+        }
+        .pb-band::before { left: 0; background: linear-gradient(to right, #111827, rgba(17, 24, 39, 0)); }
+        .pb-band::after { right: 0; background: linear-gradient(to left, #111827, rgba(17, 24, 39, 0)); }
+        .pb-row {
+            display: flex; gap: 10px; overflow-x: auto; overflow-y: hidden; padding: 0 10px;
+            scrollbar-width: none; -ms-overflow-style: none; overscroll-behavior-x: contain;
+        }
+        .pb-row::-webkit-scrollbar { display: none; }
+        .pb-tile {
+            flex: 0 0 auto; height: var(--pb-h); width: auto; border-radius: 10px; overflow: hidden;
+            background: #1f2937; cursor: pointer; position: relative;
+        }
+        .pb-tile img {
+            display: block; width: 100%; height: 100%; object-fit: cover;
+            opacity: 0; transition: opacity .6s ease, transform .5s ease;
+        }
+        .pb-tile img.is-loaded { opacity: 1; }
+        .pb-tile:hover img { transform: scale(1.05); }
+        .pb-tile::after {
+            content: ''; position: absolute; inset: 0; border-radius: 10px; pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+        }
+
+        /* Lightbox for the photo band */
+        .lb {
+            position: fixed; inset: 0; z-index: 100; background: rgba(3, 7, 18, 0.94);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s;
+        }
+        .lb[hidden] { display: none; }
+        .lb.is-open { opacity: 1; visibility: visible; }
+        .lb-fig { margin: 0; display: flex; flex-direction: column; align-items: center; max-width: 100%; }
+        .lb-img {
+            max-width: 94vw; max-height: 80vh; object-fit: contain; border-radius: 8px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); opacity: 0; transition: opacity .3s ease;
+            user-select: none; -webkit-user-drag: none;
+        }
+        .lb-img.is-loaded { opacity: 1; }
+        .lb-cap { margin-top: 14px; color: #9ca3af; font-size: 14px; text-align: center; padding: 0 16px; min-height: 20px; }
+        .lb-btn {
+            position: absolute; display: flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(31, 41, 55, 0.7); color: #e5e7eb; font-size: 18px; cursor: pointer; z-index: 2;
+            transition: background .15s ease, color .15s ease;
+        }
+        .lb-btn:hover { background: #ea580c; color: #fff; }
+        .lb-close { top: 16px; right: 16px; }
+        .lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+        .lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+        .lb-counter { position: absolute; top: 26px; left: 20px; color: #9ca3af; font-size: 13px; letter-spacing: .04em; }
+        @media (max-width: 640px) {
+            .lb-img { max-height: 72vh; }
+            .lb-prev, .lb-next { top: auto; bottom: 18px; transform: none; }
+            .lb-prev { left: 18px; } .lb-next { right: 18px; }
+        }
+        body.lb-lock { overflow: hidden; }
     </style>
     <style>
         @keyframes float {
@@ -400,6 +462,41 @@
             </div>
         </div>
     </section>
+
+    <!-- Photos: drifting band of workshop pictures. Fed by gallery/gallery.js, which
+         make-gallery.py writes from the originals in pics/; stays hidden without it. -->
+    <section id="photos" class="hidden relative bg-gray-900 border-t border-gray-800 pt-10 pb-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+            <div>
+                <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-orbit-400 mb-2">
+                    <span id="pb-dot" class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orbit-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orbit-500"></span>
+                    </span>
+                    <span id="pb-label">Live from Leuven</span>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">STINT 2026 in pictures</h2>
+                <p class="text-gray-400 text-sm mt-1">Two days at the Irish College, as they happen &middot; <span id="pb-count" class="whitespace-nowrap"></span></p>
+            </div>
+            <button type="button" id="pb-open"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-700 bg-gray-800 text-sm font-medium text-gray-200 hover:bg-gray-700 hover:text-white transition">
+                <i class="fas fa-images text-orbit-400"></i>Browse all photos
+            </button>
+        </div>
+        <div id="pb-band" class="pb-band space-y-2.5"></div>
+    </section>
+
+    <!-- Lightbox for the photo band -->
+    <div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+        <div class="lb-counter" id="lb-counter"></div>
+        <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
+        <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
+        <figure class="lb-fig">
+            <img class="lb-img" id="lb-img" alt="">
+            <figcaption class="lb-cap" id="lb-cap"></figcaption>
+        </figure>
+        <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
+    </div>
 
     <!-- Scope & Overview -->
     <section id="scope" class="py-20 bg-gray-900">
@@ -713,12 +810,12 @@
                             <h4 class="text-white font-semibold mb-3">Opening &amp; Keynote I</h4>
                             <ul class="space-y-2.5 text-sm">
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">Open</span><span class="text-gray-300">Opening &amp; welcome &mdash; Organizing Committee <a href="slides/stint2026-opening.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">10 min</span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Edward Birrane</span> <span class="text-gray-500">· JHU/APL</span><br><span class="text-gray-400 italic">"Great networks start with great nodes: building routers for the solar system internet"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">35 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Edward Birrane</span> <span class="text-gray-500">· JHU/APL</span><br><span class="text-gray-400 italic">"Great networks start with great nodes: building routers for the solar system internet"</span> <a href="slides/stint2026-slides-birrane.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">35 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Inv</span><span><span class="text-white font-medium">Martin Tanchev</span> <span class="text-gray-500">· Goce Delcev University</span><br><span class="text-gray-400 italic">"Self-Authenticating Addresses for Post-Quantum DTN"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                             </ul>
                         </div>
 
-                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15 &nbsp;|&nbsp; Lunch · 12:30&ndash;13:30</div>
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15</div>
 
                         <!-- Slot 2 -->
                         <div>
@@ -729,10 +826,12 @@
                             <h4 class="text-white font-semibold mb-3">Session 1 &mdash; Routing &amp; Topology</h4>
                             <ul class="space-y-2.5 text-sm">
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Juan A. Fraire</span><br><span class="text-gray-400 italic">"On the Distribution of DTN Reachability Information: Push-vs-Pull"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Shota Suzuki et al.</span><br><span class="text-gray-400 italic">"IR-CGR: Time-Aware Inter-Region Contact Graph Routing"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Shota Suzuki et al.</span><br><span class="text-gray-400 italic">"IR-CGR: Time-Aware Inter-Region Contact Graph Routing"</span> <a href="slides/stint2026-slides-suzuki.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Andre Ibrahim et al.</span><br><span class="text-gray-400 italic">"Network-Layer Evaluation of Optical CPD under PAT Constraints"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                             </ul>
                         </div>
+
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Lunch · 12:30&ndash;13:30</div>
 
                         <!-- Slot 3 -->
                         <div>
@@ -758,7 +857,7 @@
                             <h4 class="text-white font-semibold mb-3">Session 2 &mdash; Protocols &amp; Integration</h4>
                             <ul class="space-y-2.5 text-sm">
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Carlo Caini et al.</span><br><span class="text-gray-400 italic">"Integrating LoRa Nodes into Global DTN Networks (muON)"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Oriol Fusté et al.</span><br><span class="text-gray-400 italic">"Deploying QUIC in Challenged Networks"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Oriol Fusté et al.</span><br><span class="text-gray-400 italic">"Deploying QUIC in Challenged Networks"</span> <a href="slides/stint2026-slides-fuste.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Mathias Durat et al.</span><br><span class="text-gray-400 italic">"CSPCL: Non-Disruptive Transition to DTN for CubeSat Operators"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-stellar-600 bg-opacity-20 text-stellar-300 border border-stellar-600 border-opacity-50">Pst</span><span class="text-gray-300">Poster Lightning Madness &mdash; 9 posters &times; ~1 min <a href="slides/stint2026-poster.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">15 min</span></li>
                             </ul>
@@ -784,12 +883,12 @@
                             </div>
                             <h4 class="text-white font-semibold mb-3">Keynotes III &amp; IV</h4>
                             <ul class="space-y-2.5 text-sm">
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Felix Flentge</span> <span class="text-gray-500">· ESA</span><br><span class="text-gray-400 italic">"DTN &mdash; Standardisation &amp; Governance: A Perspective from the European Space Agency"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">35 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Felix Flentge</span> <span class="text-gray-500">· ESA</span><br><span class="text-gray-400 italic">"DTN &mdash; Standardisation &amp; Governance: A Perspective from the European Space Agency"</span> <a href="slides/stint2026-slides-flentge.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">35 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-orbit-900 bg-opacity-70 text-orbit-300 border border-orbit-700 border-opacity-60">Key</span><span><span class="text-white font-medium">Alberto Montilla</span> <span class="text-gray-500">· Spatiam</span><br><span class="text-gray-400 italic">"From Missions to Infrastructure: Building the Interplanetary Network"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">35 min</span></li>
                             </ul>
                         </div>
 
-                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15 &nbsp;|&nbsp; Lunch · 12:30&ndash;13:30</div>
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Coffee break · 11:00&ndash;11:15</div>
 
                         <!-- Slot 6 -->
                         <div>
@@ -802,11 +901,13 @@
                             </h4>
                             <ul class="space-y-2.5 text-sm">
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-400 border border-gray-600">Intro</span><span class="text-gray-300">MISSION project introduction &mdash; Jorge Finochietto</span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">10 min</span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Ramiro Detke et al.</span><br><span class="text-gray-400 italic">"Security-Aware Route Selection in DTNs: Key Provisioning"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Ramiro Detke et al.</span><br><span class="text-gray-400 italic">"Security-Aware Route Selection in DTNs: Key Provisioning"</span> <a href="slides/stint2026-slides-detke.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                                 <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Simon Rink et al.</span><br><span class="text-gray-400 italic">"CGR*: A* Search for Contact Graph Routing"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
-                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Alejandro Toledo et al.</span><br><span class="text-gray-400 italic">"Lifespan-Aware Contact Plan Design for Interplanetary FSO Networks"</span></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
+                                <li class="flex gap-2"><span class="mt-0.5 shrink-0 text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-700 text-gray-300 border border-gray-600">Pap</span><span><span class="text-white font-medium">Alejandro Toledo et al.</span><br><span class="text-gray-400 italic">"Lifespan-Aware Contact Plan Design for Interplanetary FSO Networks"</span> <a href="slides/stint2026-slides-toledo.pdf" target="_blank" rel="noopener noreferrer" class="ml-1 inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-orbit-300 transition whitespace-nowrap align-baseline"><i class="fas fa-file-pdf"></i>Slides</a></span><span class="ml-auto shrink-0 whitespace-nowrap mt-0.5 text-[11px] text-gray-600 tabular-nums">20 min</span></li>
                             </ul>
                         </div>
+
+                        <div class="text-center text-xs text-gray-600 border-t border-gray-700 pt-3">Lunch · 12:30&ndash;13:30</div>
 
                         <!-- Slot 7 -->
                         <div>
@@ -883,7 +984,7 @@
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
                         <div class="px-5 pb-5">
-                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Regionalization techniques scale Contact Graph Routing (CGR) in space Delay-Tolerant Networks by partitioning the network into routing regions, but existing local-knowledge schemes treat inter-region routing as a time-static problem: the set of viable passageways (nodes bridging two regions) is fixed at plan-derivation time. In orbital environments where passageway availability changes continuously, a statically selected passageway may have no contact left to carry a bundle onward by its arrival time, causing delivery failures. We propose IR-CGR, an Inter-Region Contact Graph Routing algorithm that constructs a time-aware Inter-Region Contact Plan (IRCP) over passageway nodes and applies contact-graph Dijkstra hierarchically at both intra- and inter-region levels, with a sampling parameter &Delta;t that trades IRCP size against temporal resolution. Evaluations on a synthetic scaling model and the realistic Lunar Ring Road scenario show that IR-CGR sustains 100% delivery ratio, matching full-knowledge CGR, on sparse-relay lunar configurations where the static-vent baseline collapses to 53&ndash;72%; reduces per-bundle computational cost to 7&ndash;29% of the full-knowledge baseline on the largest synthetic networks at its default 3600 s sampling interval; and keeps delivery delay within about 1.9× of the full-knowledge reference on most sparse-relay configurations. A bounded delay overhead in the dense synthetic regime and a localized cost penalty under degenerate partitions together quantify the structural price of hierarchical path commitment.</p><div class="mt-3 text-right"><a href="papers/stint2026-43-suzuki.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div>
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Regionalization techniques scale Contact Graph Routing (CGR) in space Delay-Tolerant Networks by partitioning the network into routing regions, but existing local-knowledge schemes treat inter-region routing as a time-static problem: the set of viable passageways (nodes bridging two regions) is fixed at plan-derivation time. In orbital environments where passageway availability changes continuously, a statically selected passageway may have no contact left to carry a bundle onward by its arrival time, causing delivery failures. We propose IR-CGR, an Inter-Region Contact Graph Routing algorithm that constructs a time-aware Inter-Region Contact Plan (IRCP) over passageway nodes and applies contact-graph Dijkstra hierarchically at both intra- and inter-region levels, with a sampling parameter &Delta;t that trades IRCP size against temporal resolution. Evaluations on a synthetic scaling model and the realistic Lunar Ring Road scenario show that IR-CGR sustains 100% delivery ratio, matching full-knowledge CGR, on sparse-relay lunar configurations where the static-vent baseline collapses to 53&ndash;72%; reduces per-bundle computational cost to 7&ndash;29% of the full-knowledge baseline on the largest synthetic networks at its default 3600 s sampling interval; and keeps delivery delay within about 1.9× of the full-knowledge reference on most sparse-relay configurations. A bounded delay overhead in the dense synthetic regime and a localized cost penalty under degenerate partitions together quantify the structural price of hierarchical path commitment.</p><div class="mt-3 text-right flex justify-end gap-4"><a href="papers/stint2026-43-suzuki.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a><a href="slides/stint2026-slides-suzuki.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>Slides</a></div>
                         </div>
                     </details>
 
@@ -937,7 +1038,7 @@
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
                         <div class="px-5 pb-5">
-                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">As communication networks expand into environments characterized by extreme latency and frequent disruptions, reliable data delivery requires Store&amp;Forward (SnF) architectures. While Delay-Tolerant Networking (DTN) has traditionally served as the de facto standard for these challenged networks, there is renewed interest in leveraging the IP suite, specifically the QUIC transport protocol. However, existing literature often evaluates QUIC strictly within Interplanetary Network (IPN) contexts, mixing the fundamental constraints of general challenged networks with the specific architectural issues of a heterogeneous "network of networks". This paper isolates the generalized challenged network problem to evaluate QUIC's end-to-end transport viability. We identify that while QUIC's internal logic is inherently resilient to delay fluctuations when supported by IP-layer SnF, classic Congestion Control Algorithms (CCAs) critically fail due to unreliable signaling and extreme delays. To address this, we propose a comprehensive deployment strategy that combines rigorous QUIC parameter profiling with a novel, volume-aware CCA. This approach bounds in-flight data to a path's routable volume of data rather than relying on classic congestion signals like loss or delay increase. We validate our strategy through a ns-3 simulation of a dynamic "data mule" topology. Results show that a properly configured volume-aware QUIC/IP stack effectively utilizes available bandwidth without exceeding the nodes' storage capabilities. These findings provide initial evidence that QUIC is a viable alternative to DTN for generalized challenged networks, while delimiting the regime &mdash; single-flow, scheduled-contact scenarios with known path volumes &mdash; in which the result currently holds.</p><div class="mt-3 text-right"><a href="papers/stint2026-66-fuste.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div>
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">As communication networks expand into environments characterized by extreme latency and frequent disruptions, reliable data delivery requires Store&amp;Forward (SnF) architectures. While Delay-Tolerant Networking (DTN) has traditionally served as the de facto standard for these challenged networks, there is renewed interest in leveraging the IP suite, specifically the QUIC transport protocol. However, existing literature often evaluates QUIC strictly within Interplanetary Network (IPN) contexts, mixing the fundamental constraints of general challenged networks with the specific architectural issues of a heterogeneous "network of networks". This paper isolates the generalized challenged network problem to evaluate QUIC's end-to-end transport viability. We identify that while QUIC's internal logic is inherently resilient to delay fluctuations when supported by IP-layer SnF, classic Congestion Control Algorithms (CCAs) critically fail due to unreliable signaling and extreme delays. To address this, we propose a comprehensive deployment strategy that combines rigorous QUIC parameter profiling with a novel, volume-aware CCA. This approach bounds in-flight data to a path's routable volume of data rather than relying on classic congestion signals like loss or delay increase. We validate our strategy through a ns-3 simulation of a dynamic "data mule" topology. Results show that a properly configured volume-aware QUIC/IP stack effectively utilizes available bandwidth without exceeding the nodes' storage capabilities. These findings provide initial evidence that QUIC is a viable alternative to DTN for generalized challenged networks, while delimiting the regime &mdash; single-flow, scheduled-contact scenarios with known path volumes &mdash; in which the result currently holds.</p><div class="mt-3 text-right flex justify-end gap-4"><a href="papers/stint2026-66-fuste.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a><a href="slides/stint2026-slides-fuste.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>Slides</a></div>
                         </div>
                     </details>
 
@@ -973,7 +1074,7 @@
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
                         <div class="px-5 pb-5">
-                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Bundle Protocol Security (BPSec) provides integrity and confidentiality for Delay-Tolerant Networks (DTNs) but deliberately leaves key management to the operator. In space networks, where intermittent contacts preclude interactive key exchange, the adopted security scheme &mdash; End-to-End, Hop-by-Hop, Edge-by-Edge, or Edge-to-Edge &mdash; determines which symmetric keys must be pre-provisioned for each route to remain usable. This paper introduces a security-aware route selection framework that couples routing feasibility with cryptographic provisioning: routes computed via Contact Graph Routing are translated into scheme-induced key scopes, and a mixed-integer linear program minimizes the active key scopes required to reach a target connectivity ratio. Results on a four-plane orbital scenario quantify the trade-off between key provisioning, cryptographic processing, and data-at-rest exposure: End-to-End minimizes exposure and processing at maximal key cost, Hop-by-Hop exhibits the opposite profile, while the edge-based schemes provide practical intermediate operating points, turning BPSec policy selection into a quantitative decision.</p><div class="mt-3 text-right"><a href="papers/stint2026-19-detke.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div>
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Bundle Protocol Security (BPSec) provides integrity and confidentiality for Delay-Tolerant Networks (DTNs) but deliberately leaves key management to the operator. In space networks, where intermittent contacts preclude interactive key exchange, the adopted security scheme &mdash; End-to-End, Hop-by-Hop, Edge-by-Edge, or Edge-to-Edge &mdash; determines which symmetric keys must be pre-provisioned for each route to remain usable. This paper introduces a security-aware route selection framework that couples routing feasibility with cryptographic provisioning: routes computed via Contact Graph Routing are translated into scheme-induced key scopes, and a mixed-integer linear program minimizes the active key scopes required to reach a target connectivity ratio. Results on a four-plane orbital scenario quantify the trade-off between key provisioning, cryptographic processing, and data-at-rest exposure: End-to-End minimizes exposure and processing at maximal key cost, Hop-by-Hop exhibits the opposite profile, while the edge-based schemes provide practical intermediate operating points, turning BPSec policy selection into a quantitative decision.</p><div class="mt-3 text-right flex justify-end gap-4"><a href="papers/stint2026-19-detke.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a><a href="slides/stint2026-slides-detke.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>Slides</a></div>
                         </div>
                     </details>
 
@@ -1009,7 +1110,7 @@
                             <span class="chevron shrink-0 mt-1 text-orbit-400"><i class="fas fa-chevron-down"></i></span>
                         </summary>
                         <div class="px-5 pb-5">
-                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Free-space optical (FSO) communication promises to relieve the capacity bottleneck in radio-frequency deep-space networks, but its narrow beams demand precise pointing, acquisition, and tracking (PAT), which in turn requires that link opportunities be scheduled in advance through contact plan design (CPD). Existing CPD schedulers for optical interplanetary backhaul maximize throughput, while battery state-of-charge has been considered only for RF networks, yet none model the irreversible decay of radioisotope thermoelectric generator (RTG) power or its effect on long-term survivability. We extend the Laser Link Scheduler (LLS) with three resource-aware variants: energy-, battery-, and lifespan-aware, that fold RTG decay and optical-terminal consumption into per-node lifetime constraints, and evaluate the trade-off between capacity, fairness, and survivability across Mars-to-Earth constellations of increasing size. We define network lifetime as the point at which data-producing source nodes can no longer transmit, and find that the capacity-greedy LLS schedules 45 to 55% more data than the fairness baseline while consuming the lowest amount of energy. However, we find that survivability is governed by the hardware power margin, not by scheduling, and stays nearly identical across all schedulers at both end-of-life and beginning-of-life RTG power levels. These distinctions matter for mission operations, where expensive scientific payloads must balance data backhaul rate against mission lifetime.</p><div class="mt-3 text-right"><a href="papers/stint2026-37-toledo.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a></div>
+                            <p class="text-gray-400 text-sm leading-relaxed border-t border-gray-700 pt-3">Free-space optical (FSO) communication promises to relieve the capacity bottleneck in radio-frequency deep-space networks, but its narrow beams demand precise pointing, acquisition, and tracking (PAT), which in turn requires that link opportunities be scheduled in advance through contact plan design (CPD). Existing CPD schedulers for optical interplanetary backhaul maximize throughput, while battery state-of-charge has been considered only for RF networks, yet none model the irreversible decay of radioisotope thermoelectric generator (RTG) power or its effect on long-term survivability. We extend the Laser Link Scheduler (LLS) with three resource-aware variants: energy-, battery-, and lifespan-aware, that fold RTG decay and optical-terminal consumption into per-node lifetime constraints, and evaluate the trade-off between capacity, fairness, and survivability across Mars-to-Earth constellations of increasing size. We define network lifetime as the point at which data-producing source nodes can no longer transmit, and find that the capacity-greedy LLS schedules 45 to 55% more data than the fairness baseline while consuming the lowest amount of energy. However, we find that survivability is governed by the hardware power margin, not by scheduling, and stays nearly identical across all schedulers at both end-of-life and beginning-of-life RTG power levels. These distinctions matter for mission operations, where expensive scientific payloads must balance data backhaul rate against mission lifetime.</p><div class="mt-3 text-right flex justify-end gap-4"><a href="papers/stint2026-37-toledo.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>PDF</a><a href="slides/stint2026-slides-toledo.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-orbit-300 transition"><i class="fas fa-file-pdf"></i>Slides</a></div>
                         </div>
                     </details>
 
@@ -1862,6 +1963,148 @@
 
         // Apply to each canvas
         document.querySelectorAll('.stars-canvas').forEach(initStars);
+    </script>
+    <!-- Photo band: manifest written by make-gallery.py (missing file = section stays hidden) -->
+    <script src="gallery/gallery.js"></script>
+    <script>
+        (function () {
+            const data = window.STINT_GALLERY;
+            const items = data && data.items ? data.items : [];
+            if (!items.length) return;
+            const n = items.length;
+            const section = document.getElementById('photos');
+            section.classList.remove('hidden');
+            document.getElementById('pb-count').textContent = n + (n === 1 ? ' photo' : ' photos');
+
+            // "Live" only while the workshop runs; afterwards a plain dateline.
+            if (new Date() > new Date(2026, 8, 15, 23, 59)) {
+                document.getElementById('pb-dot').hidden = true;
+                document.getElementById('pb-label').textContent = 'Leuven, 14–15 September 2026';
+            }
+
+            const full = it => 'gallery/' + it.f + '.jpg';
+            const thumb = it => 'gallery/' + it.f + '-thumb.jpg';
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // --- drifting rows: two rows (odd/even photos) moving in opposite directions ---
+            const band = document.getElementById('pb-band');
+            const lists = n >= 8
+                ? [items.filter((_, i) => i % 2 === 0), items.filter((_, i) => i % 2 === 1)]
+                : [items];
+            const copies = reduceMotion ? 1 : 2;   // duplicated content makes the loop seamless
+            const rows = lists.map((list, r) => {
+                const row = document.createElement('div');
+                row.className = 'pb-row';
+                for (let c = 0; c < copies; c++) {
+                    list.forEach((it, k) => {
+                        const idx = items.indexOf(it);
+                        const tile = document.createElement('div');
+                        tile.className = 'pb-tile';
+                        tile.style.aspectRatio = it.w + ' / ' + it.h;
+                        if (c > 0) tile.setAttribute('aria-hidden', 'true');
+                        const img = document.createElement('img');
+                        img.alt = it.c || '';
+                        img.decoding = 'async';
+                        img.loading = (c === 0 && k < 10) ? 'eager' : 'lazy';
+                        img.addEventListener('load', () => img.classList.add('is-loaded'));
+                        img.src = thumb(it);
+                        if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
+                        tile.appendChild(img);
+                        tile.addEventListener('click', () => openLightbox(idx));
+                        row.appendChild(tile);
+                    });
+                }
+                band.appendChild(row);
+                return { el: row, dir: r % 2 === 0 ? 1 : -1, speed: 26 + r * 8, pos: 0, init: false };
+            });
+
+            let hoverPause = false, touchPauseUntil = 0, inView = true, lightboxOpen = false;
+            if (!reduceMotion) {
+                new IntersectionObserver(es => { inView = es[0].isIntersecting; }, { rootMargin: '120px' }).observe(band);
+                band.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hoverPause = true; });
+                band.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hoverPause = false; });
+                band.addEventListener('touchstart', () => { touchPauseUntil = Infinity; }, { passive: true });
+                band.addEventListener('touchend', () => { touchPauseUntil = performance.now() + 2500; }, { passive: true });
+                band.addEventListener('touchcancel', () => { touchPauseUntil = performance.now() + 2500; }, { passive: true });
+
+                let last = performance.now();
+                document.addEventListener('visibilitychange', () => { last = performance.now(); });
+                (function tick(now) {
+                    const dt = Math.min(0.05, (now - last) / 1000);
+                    last = now;
+                    const running = inView && !document.hidden && !hoverPause && !lightboxOpen && now > touchPauseUntil;
+                    rows.forEach(r => {
+                        const half = r.el.scrollWidth / 2;
+                        if (half <= r.el.clientWidth) return;          // too little content to loop
+                        if (!r.init) { r.init = true; r.pos = r.dir < 0 ? half : 0; r.el.scrollLeft = r.pos; }
+                        if (Math.abs(r.el.scrollLeft - r.pos) > 1.5) r.pos = r.el.scrollLeft;   // user scrolled
+                        if (running) r.pos += r.dir * r.speed * dt;
+                        if (r.pos >= half) r.pos -= half; else if (r.pos < 0) r.pos += half;
+                        r.el.scrollLeft = r.pos;
+                    });
+                    requestAnimationFrame(tick);
+                })(last);
+            }
+
+            // --- lightbox ---
+            const lb = document.getElementById('lb');
+            const lbImg = document.getElementById('lb-img');
+            const lbCap = document.getElementById('lb-cap');
+            const lbCounter = document.getElementById('lb-counter');
+            const closeBtn = document.getElementById('lb-close');
+            let cur = 0, closeTimer = null;
+
+            const fmtWhen = t => {
+                const d = new Date(t);
+                if (isNaN(d)) return '';
+                return d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })
+                    + ', ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+            };
+            function show(i) {
+                cur = (i + n) % n;
+                const it = items[cur];
+                lbImg.classList.remove('is-loaded');
+                lbImg.src = full(it);
+                lbImg.alt = it.c || ('STINT 2026 photo ' + (cur + 1));
+                lbCounter.textContent = (cur + 1) + ' / ' + n;
+                lbCap.textContent = [it.c, fmtWhen(it.t)].filter(Boolean).join(' · ');
+                [cur + 1, cur - 1].forEach(j => { new Image().src = full(items[(j + n) % n]); });
+            }
+            lbImg.addEventListener('load', () => lbImg.classList.add('is-loaded'));
+            function openLightbox(i) {
+                clearTimeout(closeTimer);
+                show(i);
+                lb.hidden = false;
+                requestAnimationFrame(() => lb.classList.add('is-open'));
+                document.body.classList.add('lb-lock');
+                lightboxOpen = true;
+                closeBtn.focus({ preventScroll: true });
+            }
+            function closeLightbox() {
+                lb.classList.remove('is-open');
+                document.body.classList.remove('lb-lock');
+                lightboxOpen = false;
+                closeTimer = setTimeout(() => { lb.hidden = true; lbImg.removeAttribute('src'); }, 260);
+            }
+            document.getElementById('pb-open').addEventListener('click', () => openLightbox(0));
+            closeBtn.addEventListener('click', closeLightbox);
+            document.getElementById('lb-prev').addEventListener('click', () => show(cur - 1));
+            document.getElementById('lb-next').addEventListener('click', () => show(cur + 1));
+            lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-fig')) closeLightbox(); });
+            document.addEventListener('keydown', e => {
+                if (!lightboxOpen) return;
+                if (e.key === 'Escape') closeLightbox();
+                else if (e.key === 'ArrowRight') show(cur + 1);
+                else if (e.key === 'ArrowLeft') show(cur - 1);
+            });
+            // swipe left/right on touch screens
+            let sx = 0, sy = 0;
+            lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+            lb.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+                if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(dx < 0 ? cur + 1 : cur - 1);
+            }, { passive: true });
+        })();
     </script>
 </body>
 

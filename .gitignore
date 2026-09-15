@@ -16,3 +16,8 @@ papers/
 posters/
 # Presentation PDFs (opening deck, later talks): same treatment as above.
 slides/
+# Photos: pics/ holds the phone originals (HEIC, with EXIF/GPS), gallery/ the
+# stripped web copies and manifest that make-gallery.py derives from them.
+# gallery/ is deployed like papers/; neither belongs in the public repo.
+pics/
+gallery/
